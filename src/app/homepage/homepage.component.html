@@ -1,0 +1,68 @@
+<div class="container">
+  <section class="wrapper">
+    <div class="astronaute-container">
+      <img
+        id="astronaute"
+        class="astronaute"
+        src="../../assets/images/Kerbal.png"
+      />
+    </div>
+    <div class="planet">
+      <img src="../../assets/images/soleil.png" class="soleil" alt="soleil" />
+      <img
+        [src]="imgSrc"
+        class="lune"
+        alt="lune"
+        (mouseover)="imgSrc = '../../assets/images/lune1.png'"
+        (mouseout)="imgSrc = '../../assets/images/lune.png'"
+      />
+    </div>
+
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="title">
+      <h1>Alexis DELAUNAY</h1>
+      <h2>DÉVELOPPEUR WEB</h2>
+      <span>X</span>
+      <h2>ÉTUDIANT</h2>
+    </div>
+  </section>
+  <section class="sectionWave">
+    <div class="waves">
+      <div
+        class="wave"
+        id="wave1"
+        [ngStyle]="{ backgroundImage: 'url(../../assets/images/wave.png)' }"
+      ></div>
+      <div
+        class="wave"
+        id="wave2"
+        [ngStyle]="{ backgroundImage: 'url(../../assets/images/wave.png)' }"
+      ></div>
+      <div
+        class="wave"
+        id="wave3"
+        [ngStyle]="{ backgroundImage: 'url(../../assets/images/wave.png)' }"
+      ></div>
+      <div
+        class="wave"
+        id="wave4"
+        [ngStyle]="{ backgroundImage: 'url(../../assets/images/wave.png)' }"
+      ></div>
+      <img src="../../assets/images/island.png" class="island" />
+      <img src="../../assets/images/beach1.jpg" class="beach" />
+    </div>
+  </section>
+</div>
+
+<!-- <div
+  class="container"
+  [ngStyle]="{ backgroundImage: 'url(../../assets/images/background.jpg)' }"
+>
+  <h1>Alexis DELAUNAY</h1>
+  <div class="title">
+    <h2>DÉVELOPPEUR WEB</h2>
+    <p>X</p>
+    <h2>ÉTUDIANT</h2>
+  </div>
+</div> -->

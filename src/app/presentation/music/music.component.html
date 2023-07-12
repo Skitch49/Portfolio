@@ -1,0 +1,31 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
+<div class="container-music" *ngIf="music">
+  <div class="background" [style.background-image]="'url(' + imageSrc + ')'" >
+  </div>
+
+  <div id="AnchorId" class="container-player">
+    <div class="player-img">
+      <img  class="active" id="cover" [src]="imageSrc"/>
+    </div>
+
+    <h2 id="music-title">{{ currentSong.displayName }}</h2>
+    <h3 id="music-artist">{{ currentSong.artist }}</h3>
+
+    <div class="player-progress" id="player-progress" (click)="setProgressBar($event)">
+      <div class="progress" id="progress" [style.width.%]="progressPercent"></div>
+      <div class="music-duration">
+        <span id="current-time">{{ formatTime(currentTime)  }}</span>
+        <span id="duration">{{ formatTime(duration) }}</span>
+      </div>
+    </div>
+    <div class="player-controls">
+      <i class="fa-solid fa-backward" id="prev" title="Previous" (click)="changeMusic(-1)"></i>
+      <i class="fa-solid fa-play play-button" id="play" title="Play" [ngClass]="{'fa-play': !isPlaying, 'fa-pause': isPlaying}" (click)="togglePlay()"></i>
+      <i class="fa-solid fa-forward" id="next" title="Next" (click)="changeMusic(1)"></i>
+    </div>
+  </div>
+</div>

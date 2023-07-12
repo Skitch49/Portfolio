@@ -1,0 +1,40 @@
+nav {
+  background-color: #090a0f;
+}
+.nav-list {
+  display: flex;
+  list-style: none;
+  justify-content: flex-end;
+  margin-right: 10%;
+}
+
+.linkMenu {
+  padding: 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+  z-index: 0;
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #80cfe9;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s;
+  }
+
+  &:hover::after,
+  &.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}

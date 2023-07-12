@@ -1,0 +1,101 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="container-presentation">
+      <div class="presentation">
+        <h1>Qui suis-je ?</h1>
+        <div class="ordi">
+          <div class="texte">
+            <p id="saisie1"></p>
+            <p id="saisie2"></p>
+            <p id="saisie3"></p>
+          </div>
+        </div>
+      </div>
+      <div class="competences">
+        <h1>Compétences techniques</h1>
+        <h2>CMS / FRAMEWORKS</h2>
+        <div class="container-frameworks">
+          <img src="../../assets/images/angular.png" alt="Angular" />
+          <img src="../../assets/images/wordpress.png" alt="WordPress" />
+          <img src="../../assets/images/bootstrap.png" alt="Bootstrap" />
+        </div>
+        <h2>LANGAGES INFORMATIQUES</h2>
+        <div class="langage-info">
+          <img src="../../assets/images/php.png" alt="PHP" />
+          <img src="../../assets/images/python.png" alt="python" />
+          <img src="../../assets/images/java.png" alt="java" />
+          <img src="../../assets/images/js.png" alt="Javascript" />
+          <img src="../../assets/images/css.png" alt="CSS" />
+          <img src="../../assets/images/html.png" alt="HTML" />
+          <img src="../../assets/images/sql.png" alt="SQL" />
+          <img src="../../assets/images/nodeJS.png" alt="node JS" />
+        </div>
+        <h2>AUTRES</h2>
+        <div class="autres">
+          <img src="../../assets/images/git.png" alt="git" />
+          <img src="../../assets/images/phpmyadmin.png" alt="phpmyadmin" />
+          <img src="../../assets/images/premierePro.png" alt="Premiere Pro" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-hobbies">
+    <h3 id="title-hobby">Hobby</h3>
+    <div class="wrapper-hobbies">
+      <div
+        class="container-hobby"
+        [ngStyle]="{
+          backgroundImage: 'url(../../assets/images/competences.jpg)'
+        }"
+      >
+        <div class="content">
+          <div class="name">Compétences</div>
+          <div
+            class="cover"
+            [ngStyle]="{
+              backgroundImage: 'url(../../assets/images/developpeur.png)'
+            }"
+          ></div>
+        </div>
+      </div>
+      <div
+        class="container-hobby"
+        routerLink="jeux-video"
+        routerLinkActive="active"
+        [ngStyle]="{
+          backgroundImage: 'url(../../assets/images/gta.jpg)'
+        }"
+      >
+        <div class="content">
+          <div class="name">Jeux vidéo</div>
+          <div
+            class="cover"
+            [ngStyle]="{
+              backgroundImage: 'url(../../assets/images/trevor.png)'
+            }"
+          ></div>
+        </div>
+      </div>
+      <div
+        class="container-hobby"
+        [ngStyle]="{
+          backgroundImage: 'url(../../assets/images/concert.jpg)'
+        }"
+        routerLink="music"
+        routerLinkActive="active"
+      >
+        <div class="content">
+          <div class="name">Musique</div>
+          <div
+            class="cover"
+            [ngStyle]="{
+              backgroundImage: 'url(../../assets/images/vald.png)'
+            }"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
