@@ -1,1 +1,21 @@
-<p>contact works!</p>
+<form class="box" (ngSubmit)="submit()" [formGroup]="form">
+    <h1 class="box-title">Me Contacter</h1>
+    <div class="container-form">
+      <div class="inputBox">
+        <input type="text" formControlName="nom">
+        <span>Nom | Prénom</span>
+      </div>
+      <div class="inputBox">
+        <input type="text" formControlName="email">
+        <span>Email</span>
+      </div>
+      <div class="inputBox">
+        <textarea type="text" formControlName="message"></textarea>
+        <span>Message</span>
+        
+      </div>
+      <input type="submit" id="btn-connexion" value="Envoyer" name="submit" class="box-button">
+    </div>
+    
+
+  </form>

@@ -12,7 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ContactComponent } from './contact/contact.component';
 import { MusicComponent } from './presentation/music/music.component';
 import { JeuxVideoComponent } from './presentation/jeux-video/jeux-video.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './shared/pipes/filter.pipe';
 
 @NgModule({
@@ -29,7 +29,7 @@ import { FilterPipe } from './shared/pipes/filter.pipe';
     JeuxVideoComponent,
     FilterPipe,
   ],
-  imports: [FormsModule, BrowserModule, AppRoutingModule],
+  imports: [FormsModule, BrowserModule, AppRoutingModule,ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
