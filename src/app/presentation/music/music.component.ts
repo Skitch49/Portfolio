@@ -159,9 +159,11 @@ export class MusicComponent implements OnDestroy, AfterViewInit {
   }
 
   updateProgressBar(): void {
-    this.currentTime = this.music.currentTime;
-    this.duration = this.music.duration;
-    this.progressPercent = (this.currentTime / this.duration) * 100;
+    if (!isNaN(this.music.currentTime) && !isNaN(this.music.duration)) {
+      this.currentTime = this.music.currentTime;
+      this.duration = this.music.duration;
+      this.progressPercent = (this.currentTime / this.duration) * 100;
+    }
   }
 
   setProgressBar(e: MouseEvent): void {

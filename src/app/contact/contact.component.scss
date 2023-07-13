@@ -24,7 +24,7 @@
       transition: 0.5s;
       margin-bottom: 25px;
   
-      &:valid ~ span,
+      &.ng-touched.ng-dirty ~ span,
       &:focus ~ span {
         background: #00dfc4;
         color: #1d2b3a;

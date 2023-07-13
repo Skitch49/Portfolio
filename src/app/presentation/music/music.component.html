@@ -18,8 +18,8 @@
     <div class="player-progress" id="player-progress" (click)="setProgressBar($event)">
       <div class="progress" id="progress" [style.width.%]="progressPercent"></div>
       <div class="music-duration">
-        <span id="current-time">{{ formatTime(currentTime)  }}</span>
-        <span id="duration">{{ formatTime(duration) }}</span>
+        <span id="current-time">{{ (currentTime || currentTime === 0) ? formatTime(currentTime) : '00:00' }}</span>
+        <span id="duration">{{ (duration || duration === 0) ? formatTime(duration) : '00:00' }}</span>
       </div>
     </div>
     <div class="player-controls">

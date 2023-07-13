@@ -8,6 +8,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ContactComponent } from './contact/contact.component';
 import { MusicComponent } from './presentation/music/music.component';
 import { JeuxVideoComponent } from './presentation/jeux-video/jeux-video.component';
+import { VoyageComponent } from './presentation/voyage/voyage.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
     children: [
       { path: 'music', component: MusicComponent },
       { path: 'jeux-video', component: JeuxVideoComponent },
+      { path: 'voyage', component: VoyageComponent },
     ],
   },
   {

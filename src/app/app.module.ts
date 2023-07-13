@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,9 @@ import { MusicComponent } from './presentation/music/music.component';
 import { JeuxVideoComponent } from './presentation/jeux-video/jeux-video.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './shared/pipes/filter.pipe';
+import { VoyageComponent } from './presentation/voyage/voyage.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+
 
 @NgModule({
   declarations: [
@@ -28,8 +32,14 @@ import { FilterPipe } from './shared/pipes/filter.pipe';
     MusicComponent,
     JeuxVideoComponent,
     FilterPipe,
+    VoyageComponent,
   ],
-  imports: [FormsModule, BrowserModule, AppRoutingModule,ReactiveFormsModule],
+  imports: [FormsModule, BrowserModule, AppRoutingModule,ReactiveFormsModule,GoogleMapsModule, ServiceWorkerModule.register('ngsw-worker.js', {
+  enabled: !isDevMode(),
+  // Register the ServiceWorker as soon as the application is stable
+  // or after 30 seconds (whichever comes first).
+  registrationStrategy: 'registerWhenStable:30000'
+})],
   providers: [],
   bootstrap: [AppComponent],
 })
