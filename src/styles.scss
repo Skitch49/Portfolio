@@ -8,7 +8,9 @@ html,
 body {
   height: 100%;
 }
-
+.body-open-menu{
+  overflow: hidden;
+}
 :root {
   --font-family: "Roboto", sans-serif;
   --primary: #546de5;

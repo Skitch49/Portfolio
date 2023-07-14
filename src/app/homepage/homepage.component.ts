@@ -6,7 +6,25 @@ import { AfterViewInit, Component, HostListener } from '@angular/core';
   styleUrls: ['./homepage.component.scss'],
 })
 export class HomepageComponent implements AfterViewInit {
+  planet: boolean;
   astronaute: any;
+  ngOnInit() {
+    this.checkScreenWidth();
+  }
+
+  checkScreenWidth() {
+    if (window.innerWidth > 1200) {
+      this.planet = true;
+    } else {
+      this.planet = false;
+    }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.checkScreenWidth();
+  }
+
   ngAfterViewInit() {
     this.astronaute = document.getElementById('astronaute');
   }

@@ -133,14 +133,14 @@ section .waves .wave#wave4 {
   width: 200px;
   z-index: 5;
   position: absolute;
-  bottom: 21vh;
+  bottom: 11.9em;
   left: 2vh;
 }
 .beach {
   position: absolute;
   width: 100%;
   bottom: 0;
-  z-index: 1;
+  z-index: 2;
   height: 250px;
 }
 
@@ -684,8 +684,27 @@ section .waves .wave#wave4 {
     transform: translateY(-1800px);
   }
 }
-@media (max-width: 1880px) {
+
+
+
+@media (max-width: 700px) {
+  #title {
+    font-size: 1.5em;
+    padding-left: 0;
+  }
+}
+@media (max-width: 500px) {
+  #title {
+    top: 25%;
+    font-size: 1.25em;
+    letter-spacing: 2px;
+  }
+}
+@media (max-height: 545px) {
   .island {
-    bottom: 22vh;
+    display: none;
+  }
+  .waves{
+    display: none;
   }
 }

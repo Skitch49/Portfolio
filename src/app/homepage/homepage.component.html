@@ -7,7 +7,7 @@
         src="../../assets/images/Kerbal.png"
       />
     </div>
-    <div class="planet">
+    <div *ngIf="planet" class="planet">
       <img src="../../assets/images/soleil.png" class="soleil" alt="soleil" />
       <img
         [src]="imgSrc"
