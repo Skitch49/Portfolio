@@ -28,6 +28,7 @@ export class VoyageComponent implements OnInit{
         this.pointsInteret.push({
           nom: 'Vous êtes ici',
           position: this.center,
+          animation: google.maps.Animation.DROP, // Ajout de l'animation de chute
           icon: {
             path: google.maps.SymbolPath.CIRCLE,
             fillColor: 'blue',
@@ -222,6 +223,8 @@ export class VoyageComponent implements OnInit{
         position: point.position,
         map: map,
         title: point.nom,
+        animation: google.maps.Animation.DROP, // Ajout de l'animation de chute
+
         icon: point.icon // Utilisez l'icône personnalisée pour la position de l'utilisateur
       });
 
