@@ -1,67 +1,69 @@
-import { Component, OnInit} from '@angular/core';
-
-declare var google: any;
+import { Component, OnInit } from '@angular/core';
+import { Loader } from "@googlemaps/js-api-loader";
 
 @Component({
   selector: 'app-voyage',
   templateUrl: './voyage.component.html',
   styleUrls: ['./voyage.component.scss']
 })
+export class VoyageComponent implements OnInit {
 
-export class VoyageComponent implements OnInit{
-
-  center: any; // Variable pour stocker la position de l'utilisateur
-  infoWindow: any; // Variable pour stocker l'info-bulle active
-  pointsInteret: any[] = []; // Tableau des points d'interets
+  center: any;
+  infoWindow: any;
+  pointsInteret: any[] = [];
   currentMarker: google.maps.Marker;
 
   constructor() { }
 
   ngOnInit() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position => {
-        this.center = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
+    const loader = new Loader({
+      apiKey: "AIzaSyA3Wzw6wNkRyQ2ZF143gxOofa19qtfjdlU", // Remplacez par votre clé d'API Google Maps
+      version: "weekly",
+    });
 
-        this.pointsInteret.push({
-          nom: 'Vous êtes ici',
-          position: this.center,
-          animation: google.maps.Animation.DROP, // Ajout de l'animation de chute
-          icon: {
-            path: google.maps.SymbolPath.CIRCLE,
-            fillColor: 'blue',
-            fillOpacity: 1,
-            strokeColor: 'white',
-            strokeWeight: 2,
-            scale: 10
-          }
+    loader.load().then(async () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+          this.center = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          this.pointsInteret.push({
+            nom: 'Vous êtes ici',
+            position: this.center,
+            animation: google.maps.Animation.DROP,
+            icon: {
+              path: google.maps.SymbolPath.CIRCLE,
+              fillColor: 'blue',
+              fillOpacity: 1,
+              strokeColor: 'white',
+              strokeWeight: 2,
+              scale: 10
+            }
+          });
+
+          this.initMap();
+        }, error => {
+          console.error('Erreur de géolocalisation : ', error);
+          this.center = { lat: 48.8584, lng: 2.2945 };
+          this.initMap();
         });
-
-        this.initMap();
-      }, error => {
-        console.error('Erreur de géolocalisation : ', error);
-        // Utilisez une position par défaut si la géolocalisation a échoué
+      } else {
         this.center = { lat: 48.8584, lng: 2.2945 };
         this.initMap();
-      });
-    } else {
-      // Utilisez une position par défaut si la géolocalisation n'est pas prise en charge
-      this.center = { lat: 48.8584, lng: 2.2945 };
-      this.initMap();
-    }
+      }
+    });
   }
 
   initMap() {
-    // Options de la carte
     const mapOptions = {
-      zoom: 6, // Niveau de zoom initial
-      center: this.center // Centre de la carte
+      zoom: 6,
+      center: this.center
     };
 
-    // Création de la carte
     const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
 
         // Liste des points d'intérêt, y compris la position de l'utilisateur
         this.pointsInteret.push(
@@ -217,27 +219,20 @@ export class VoyageComponent implements OnInit{
     // Créer une instance d'info-bulle
     this.infoWindow = new google.maps.InfoWindow();
 
-    // Parcours des points d'intérêt et ajout des marqueurs sur la carte
     this.pointsInteret.forEach(point => {
       const marker = new google.maps.Marker({
         position: point.position,
         map: map,
         title: point.nom,
-        animation: google.maps.Animation.DROP, // Ajout de l'animation de chute
-
-        icon: point.icon // Utilisez l'icône personnalisée pour la position de l'utilisateur
+        animation: google.maps.Animation.DROP,
+        icon: point.icon
       });
 
-
-
-      // Ajouter un gestionnaire d'événement 'click' au marqueur
       marker.addListener('click', () => {
         if (this.currentMarker && this.currentMarker === marker) {
-          // Fermer l'info-bulle si le même marqueur est cliqué à nouveau
           this.infoWindow.close();
           this.currentMarker = null;
         } else {
-          // Ouvrir l'info-bulle pour le nouveau marqueur cliqué
           this.infoWindow.setContent(point.nom);
           this.infoWindow.open(map, marker);
           this.currentMarker = marker;
