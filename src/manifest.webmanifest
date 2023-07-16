@@ -1,8 +1,8 @@
 {
-  "name": "Portfolio-DA",
-  "short_name": "Portfolio-DA",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "Portfolio",
+  "short_name": "Portfolio",
+  "theme_color": "#000",
+  "background_color": "#000",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

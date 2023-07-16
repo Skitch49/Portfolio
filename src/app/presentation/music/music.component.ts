@@ -120,6 +120,7 @@ export class MusicComponent implements OnDestroy, AfterViewInit {
     ];
     this.musicIndex = 0;
   }
+
   ngAfterViewInit(): void {
     window.scrollTo({
       top: 2000,
@@ -146,7 +147,15 @@ export class MusicComponent implements OnDestroy, AfterViewInit {
   }
 
   loadMusic(song: Song): void {
-    this.music.src = song.path;
+    const cachedMusic = localStorage.getItem(song.path);
+
+    if (cachedMusic) {
+      this.music.src = cachedMusic;
+    } else {
+      this.music.src = song.path;
+      localStorage.setItem(song.path, song.path);
+    }
+
     this.currentSong = song;
     this.imageSrc = song.cover;
   }
@@ -167,32 +176,24 @@ export class MusicComponent implements OnDestroy, AfterViewInit {
   }
 
   setProgressBar(e: MouseEvent): void {
-    // const width = (e.target as HTMLElement).offsetWidth;
-    // const clickX = e.offsetX;
-    // this.music.currentTime = (clickX / width) * this.music.duration;
-
     const width = (e.target as HTMLDivElement).offsetWidth;
     const clickX = e.offsetX;
     const duration = this.music.duration;
     const newTime = (clickX / width) * duration;
     this.music.currentTime = newTime;
-    console.log('width ' + width);
-    console.log('e ' + width);
-    console.log('target ' + e.target);
-    console.log('clickX ' + clickX);
-    console.log('newTime ' + newTime);
   }
 
   formatTime(time: number): string {
-    const format = (t: number): string =>
-      String(Math.floor(t)).padStart(2, '0');
+    const format = (t: number): string => String(Math.floor(t)).padStart(2, '0');
     const minutes = format(time / 60);
     const seconds = format(time % 60);
     return `${minutes}:${seconds}`;
   }
 
   ngOnInit(): void {
-    this.loadMusic(this.songs[this.musicIndex]);
+    const firstSong = this.songs[this.musicIndex];
+    this.loadMusic(firstSong);
+
     this.music.addEventListener('ended', () => this.changeMusic(1));
     this.music.addEventListener('timeupdate', () => this.updateProgressBar());
   }
