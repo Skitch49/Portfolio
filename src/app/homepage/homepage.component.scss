@@ -1,3 +1,6 @@
+p,span,h1,h2{
+  cursor: default;
+}
 .container {
   display: flex;
   justify-content: flex-end;
@@ -144,6 +147,88 @@ section .waves .wave#wave4 {
   height: 250px;
 }
 
+// Btn cv
+
+    .btn-cv{
+          cursor: pointer;
+          font-weight: 600;
+          color: #e3e3e3;
+          text-shadow: 2px 0px 2px black;
+          margin-top: 50px;
+          position: relative;
+          display: inline-block;
+          padding: 15px 30px;
+          margin-bottom: 15px;
+          color: #fff;
+          text-transform: uppercase;
+          letter-spacing: 4px;
+          text-decoration: none;
+          font-size: 24px;
+          overflow: hidden;
+          transition: 0.2s;
+          &:hover{
+              color: #fff!important;
+              text-shadow: none;
+              background: #2196f3;
+              box-shadow: 0 0 2px #2196f3, 0 0 5px #2196f3, 0 0 4px #2196f3;
+              transition-delay: 0.5s;
+              span{
+                  &:nth-child(1){
+                      left: 100%;
+                      transition: 0.5s;
+                  }
+                  &:nth-child(3){
+                      right: 100%;
+                      transition: 0.5s;
+                      transition-delay: 0.25s;
+                  }
+                  &:nth-child(2){
+                      top: 100%;
+                      transition: 0.5s;
+                      transition-delay: 0.125s;
+                  }
+                  &:nth-child(4){
+                      bottom: 100%;
+                      transition: 0.5s;
+                      transition-delay: 0.375s;
+                  }
+              }
+          }
+          span{
+              position: absolute;
+              display: block;
+              &:nth-child(1){
+                  top: 0;
+                  left: -100%;
+                  width: 100%;
+                  height: 2px;
+                  background: linear-gradient(90deg, transparent, #2196f3);
+              }
+              &:nth-child(3){
+                  bottom: 0;
+                  right: -100%;
+                  width: 100%;
+                  height: 2px;
+                  background: linear-gradient(270deg, transparent, #2196f3);
+              }
+              &:nth-child(2){
+                  top: -100%;
+                  right: 0;
+                  width: 2px;
+                  height: 100%;
+                  background: linear-gradient(180deg, transparent, #2196f3);
+              }
+              &:nth-child(4){
+                  bottom: -100%;
+                  left: 0;
+                  width: 2px;
+                  height: 100%;
+                  background: linear-gradient(360deg, transparent, #2196f3);
+              }
+              
+          }
+      }
+    
 // Stars
 .wrapper {
   height: 100%;
@@ -178,7 +263,7 @@ section .waves .wave#wave4 {
 }
 #title h1,
 #title h2,
-#title span {
+#title > span {
   background: linear-gradient(white, #38495a);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -685,8 +770,26 @@ section .waves .wave#wave4 {
   }
 }
 
-
-
+// Réseaux sociaux
+.wrapper-reseaux{
+  display: flex;
+  z-index: 2;
+  position: relative;
+  align-items: center;
+  overflow: hidden;
+  img{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+  }
+ #github{
+  width: 38px;
+  height: 38px;
+  margin: 0 8px;
+ }
+}
+ 
+// Media Query
 @media (max-width: 700px) {
   #title {
     font-size: 1.5em;
@@ -707,4 +810,18 @@ section .waves .wave#wave4 {
   .waves{
     display: none;
   }
+}
+
+// anim social btn
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-animation {
+  animation: rotate360 0.75s;
 }

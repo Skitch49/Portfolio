@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './shared/pipes/filter.pipe';
 import { VoyageComponent } from './presentation/voyage/voyage.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { CvComponent } from './cv/cv.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     JeuxVideoComponent,
     FilterPipe,
     VoyageComponent,
+    CvComponent,
   ],
   imports: [FormsModule, BrowserModule, AppRoutingModule,ReactiveFormsModule,GoogleMapsModule, ServiceWorkerModule.register('ngsw-worker.js', {
   enabled: !isDevMode(),

@@ -9,9 +9,13 @@ import { ContactComponent } from './contact/contact.component';
 import { MusicComponent } from './presentation/music/music.component';
 import { JeuxVideoComponent } from './presentation/jeux-video/jeux-video.component';
 import { VoyageComponent } from './presentation/voyage/voyage.component';
+import { CvComponent } from './cv/cv.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
+  {
+    path: 'cv', component: CvComponent
+  },
   {
     path: 'presentation',
     component: PresentationComponent,

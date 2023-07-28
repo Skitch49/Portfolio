@@ -15,6 +15,13 @@ export class VoyageComponent implements OnInit {
 
   constructor() { }
 
+  ngAfterViewInit(): void {
+    window.scrollTo({
+      top: 2000,
+      behavior: 'smooth',
+    });
+  }
+  
   ngOnInit() {
     const loader = new Loader({
       apiKey: "AIzaSyA3Wzw6wNkRyQ2ZF143gxOofa19qtfjdlU", // Remplacez par votre clé d'API Google Maps

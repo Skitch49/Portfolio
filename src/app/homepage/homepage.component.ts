@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -6,6 +7,9 @@ import { AfterViewInit, Component, HostListener } from '@angular/core';
   styleUrls: ['./homepage.component.scss'],
 })
 export class HomepageComponent implements AfterViewInit {
+
+  constructor(private router: Router) {}
+
   planet: boolean;
   astronaute: any;
   ngOnInit() {
@@ -35,5 +39,19 @@ export class HomepageComponent implements AfterViewInit {
     const positionX = (window.innerWidth / 2 - e.x) / 4;
     const positionY = -e.y / 5;
     this.astronaute.style.transform = `translate(${positionX}px, ${positionY}px)`;
+  }
+
+  addRotationAnimation(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    target.classList.add('rotate-animation');
+    setTimeout(() => this.removeRotationAnimation(target), 751);
+  }
+
+  removeRotationAnimation(target: HTMLElement) {
+    target.classList.remove('rotate-animation');
+  }
+
+  navigateToExternalLink(link: string) {
+    window.open(link, '_blank'); // Ouvre le lien dans un nouvel onglet
   }
 }

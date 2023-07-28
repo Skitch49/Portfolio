@@ -25,8 +25,10 @@
       <h2>DÉVELOPPEUR WEB</h2>
       <span>X</span>
       <h2>ÉTUDIANT</h2>
+      <p routerLink="cv" routerLinkActive="active" class="btn-cv"><span></span><span></span><span></span><span></span>Voir mon CV</p>
     </div>
   </section>
+  
   <section class="sectionWave">
     <div class="waves">
       <div
@@ -51,6 +53,11 @@
       ></div>
       <img src="../../assets/images/island.png" class="island" />
       <img src="../../assets/images/beach1.jpg" class="beach" />
+      <div class="wrapper-reseaux">
+        <div (click)="navigateToExternalLink('https://github.com/Skitch49')"><img src="../../assets/images/github.png" id="github" (mouseenter)="addRotationAnimation($event)" ></div>
+        <div (click)="navigateToExternalLink('https://www.linkedin.com/in/alexis-delaunay')"><img src="../../assets/images/linkedin.png" (mouseenter)="addRotationAnimation($event)"></div>
+        <div (click)="navigateToExternalLink('https://twitter.com/Skitch49')"><img src="../../assets/images/twitter.png" (mouseenter)="addRotationAnimation($event)"></div>
+      </div>
     </div>
   </section>
 </div>
