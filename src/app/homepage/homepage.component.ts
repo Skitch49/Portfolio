@@ -1,3 +1,4 @@
+import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 import { AfterViewInit, Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -5,6 +6,29 @@ import { Router } from '@angular/router';
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss'],
+  animations: [
+    // trigger("title", [
+    //   transition(":enter", query("h1, h2, p, span", [
+    //     style({
+    //       opacity: 0,
+    //       transform: 'translateX(-10px)'
+    //     }),
+    //     stagger(400, animate('800ms 500ms'))
+    //   ]))
+    // ]),
+
+    trigger("container", [
+      transition(":enter", [
+        query(".sectionWave", [
+          style({
+            opacity: 0,
+            transform: 'translateY(200px)'
+          }),
+          animate('1000ms 600ms')
+        ])
+      ])
+    ])
+  ]
 })
 export class HomepageComponent implements AfterViewInit {
 

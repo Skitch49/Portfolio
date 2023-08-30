@@ -217,8 +217,51 @@ export class VoyageComponent implements OnInit {
           {
             nom: 'Niort',
             position: { lat: 46.3241, lng: -0.4585 }
-          }
-    
+          },
+          {
+            nom: 'Cimetière militaire Américain',
+            position: { lat: 49.359208724313454, lng: -0.8554059970855149 }
+          },
+          {
+            nom: 'Cimetière militaire Allemand',
+            position: { lat: 49.34294771580071, lng: -1.0265923261414558 }
+          },
+          {
+            nom: 'Biarritz',
+            position: { lat: 43.4832523, lng: -1.5592776 }
+          },
+          {
+            nom: 'Angoulême',
+            position: { lat: 45.6484505, lng: 0.1561947 }
+          },
+          {
+            nom: 'Bordeaux',
+            position: { lat: 44.841225, lng: -0.5800364 }
+          },
+          {
+            nom: 'Lourdes',
+            position: { lat: 43.0940904, lng: -0.0464975 }
+          },
+          {
+            nom: 'Pic de Madaméte',
+            position: { lat: 42.8579228, lng: 0.1366154 }
+          },
+          {
+            nom: 'Saint-Lary-Soulan',
+            position: { lat: 42.816936, lng: 0.3219538 }
+          },
+          {
+            nom: 'Mont Perdu',
+            position: { lat: 42.6755485, lng: 0.0343568 }
+          },
+          {
+            nom: 'Pau',
+            position: { lat: 43.2957547, lng: -0.3685668 }
+          },
+          {
+            nom: 'Dune du Pilat',
+            position: { lat: 44.597758, lng: -1.206551 }
+          },
           
           // Ajoutez d'autres points d'intérêt selon vos besoins
         );

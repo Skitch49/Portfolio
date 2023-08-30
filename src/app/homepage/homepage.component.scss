@@ -1,3 +1,6 @@
+body{
+  overflow: hidden !important;
+}
 p,span,h1,h2{
   cursor: default;
 }
@@ -7,6 +10,7 @@ p,span,h1,h2{
   flex-direction: column;
   min-height: 95.1vh;
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow-y: hidden;
 }
 
 // astronaute
@@ -252,9 +256,10 @@ section .waves .wave#wave4 {
   }
   h2 {
     font-size: 1.4em;
-    span {
-      display: block;
-    }
+
+  }
+  span {
+    display: block;
   }
 }
 

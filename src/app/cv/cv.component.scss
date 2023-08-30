@@ -38,13 +38,32 @@
                 height: 200px;
                 border-radius: 50%;
                 overflow: hidden;
-                img{
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
+                    .box-profil{
+                        position: relative;
+                        width: 200px;
+                        height: 200px;
+                        background: repeating-conic-gradient(from var(--a),#ff2770 0%, #ff2770 5%, transparent 5%, transparent 40%, #ff2770 50%);
+                        animation: animate 6s linear infinite;
+                        &::before{
+                            content: '';
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            background: repeating-conic-gradient(from var(--a),#45f3ff 0%, #45f3ff 5%, transparent 5%, transparent 40%, #45f3ff 50%);
+                            animation: animate 6s linear infinite;
+                            animation-delay: -1.5s;
+                        }
+                        img{
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 196px;
+                            height: 196px;
+                            object-fit: cover;
+                            transform: translateX(2px) translateY(2px);
+                            border-radius: 50%;
+                            object-position: top;
+                        }
                 }
             }
             h2{
@@ -77,6 +96,9 @@
                     list-style: none;
                     position: relative;
                     margin: 10px 0;
+                    .site-web{
+                        font-size: 13px;
+                    }
                     &#linkedin{
                         width: 105%;
                     }
@@ -167,31 +189,22 @@
             margin-bottom: 0
         }
         .skills{
-            .box{
-                position: relative;
-                width: 100%;
-                display: grid;
-                grid-template-columns: 150px 1fr;
-                justify-content: center;
-                align-items: center;
-                h4{
-                    text-transform: uppercase;
-                    color: #848c99;
-                    font-weight: 500;
-                }
-                .percent{
+            .boxes{
+                display: flex;
+                flex-wrap: wrap;
+                .box{
                     position: relative;
-                    width: 100%;
-                    height: 10px;
-                    background-color: #f0f0f0;
-                    div{
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        height: 100%;
-                        background-color: #03a9f4;
+                    width: 50%;
+                    display: grid;
+                    grid-template-columns: 150px 1fr;
+                    justify-content: center;
+                    align-items: center;
+                    h4{
+                        text-transform: uppercase;
+                        color: #848c99;
+                        font-weight: 500;
                     }
-                }
+                }                  
             }
         }
         .interest{
@@ -213,6 +226,20 @@
                 }
             }
         }
+    }
+}
+// variable animation
+@property --a {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+@keyframes animate {
+    0%{
+        --a: 0deg;
+    }
+    100%{
+        --a: 360deg;
     }
 }
 .container-btn{
@@ -276,6 +303,9 @@
      .competences{
         width: 100%!important;
      }
+     .site-web{
+        font-size: 16px!important;
+    }
 }
 @media (max-width: 600px){
     .contact-info{
@@ -293,6 +323,7 @@
     .skills .box{
         grid-template-columns: repeat(1,1fr)!important;
     }
+
 }
 @media (max-width: 300px){
 .left-side{

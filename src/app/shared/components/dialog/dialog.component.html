@@ -1,0 +1,15 @@
+<div class="project-details">
+    <h2>{{ data.project.name }}</h2>
+    <h3>{{ data.project.type }}</h3>
+    <p id="desc-project">{{ data.project.description }}</p>
+    <div *ngIf="data.project.siteweb" class="container-btn">
+      <button (click)="navigateToExternalLink(data.project.siteweb)" mat-raised-button color="accent">Voir le site</button>
+    </div>
+    <p>Techno utilisés : <span class="techno" *ngFor="let tech of data.project.techno">{{ tech }}</span></p>
+    <div class="footer-modal">
+      <button *ngIf='data.project.github' (click)="navigateToExternalLink(data.project.github)" mat-raised-button color="primary">Github</button>
+      <p id="date-realisation">{{ data.project.dateRealisation }}</p>
+  </div>
+    <button mat-dialog-close aria-label="close" class="x">❌</button>
+    <!-- Add any other project details you want to display in the modal -->
+  </div>

@@ -18,10 +18,12 @@
   </div>
 </div>
   <div class="wrapper-projects">
-    <div class="projects">
+    <div @projet class="projects">
       <div
         class="card-project"
+        
         *ngFor="let project of projects | filter : search; let index = index"
+        (click)="openDialog(project)"
       >
         <div class="project face1">
           <div class="content">
@@ -32,7 +34,7 @@
         <div class="project face2">
           <div class="content">
             <p>{{project.type}}</p>
-            <p class="techno">{{project.techno}}</p>
+            <p class="techno"><span *ngFor="let tech of project.techno">{{tech+' '}}</span></p>
           </div>
         </div>
       </div>
@@ -41,3 +43,4 @@
   <div class="msg">
     <p>Je n'attend que vous pour compléter ma collection</p>
   </div>
+  <router-outlet></router-outlet>

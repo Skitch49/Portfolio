@@ -2,7 +2,10 @@ export interface Project {
   id: number;
   name: string;
   type: string;
-  techno: string;
-  description: string;
+  techno: Array<String>;
   img: string;
+  description: string;
+  siteweb?: string;
+  github?: string;
+  dateRealisation: string;
 }

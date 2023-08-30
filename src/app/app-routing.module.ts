@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PresentationComponent } from './presentation/presentation.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ContactComponent } from './contact/contact.component';
 import { MusicComponent } from './presentation/music/music.component';
@@ -28,7 +27,6 @@ const routes: Routes = [
   {
     path: 'projets',
     component: ProjectsComponent,
-    children: [{ path: ':id', component: ProjectDetailsComponent }],
   },
   { path: 'contact', component: ContactComponent },
 
