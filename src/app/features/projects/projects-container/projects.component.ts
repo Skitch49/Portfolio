@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Project } from '../shared/interfaces/project.interface';
+import { Project } from '../../../shared/interfaces/project.interface';
 import {
   animate,
   query,
@@ -9,7 +9,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from '../shared/components/dialog/dialog.component';
+import { DialogComponent } from '../../../shared/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-projects',

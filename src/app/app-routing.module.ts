@@ -1,35 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomepageComponent } from './homepage/homepage.component';
-import { PresentationComponent } from './presentation/presentation.component';
-import { ProjectsComponent } from './projects/projects.component';
+import { ContactComponent } from './features/contact/contact-container/contact.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ContactComponent } from './contact/contact.component';
-import { MusicComponent } from './presentation/music/music.component';
-import { JeuxVideoComponent } from './presentation/jeux-video/jeux-video.component';
-import { VoyageComponent } from './presentation/voyage/voyage.component';
-import { CvComponent } from './cv/cv.component';
+
 
 const routes: Routes = [
-  { path: '', component: HomepageComponent },
-  {
-    path: 'cv', component: CvComponent
-  },
-  {
-    path: 'presentation',
-    component: PresentationComponent,
-    children: [
-      { path: 'music', component: MusicComponent },
-      { path: 'jeux-video', component: JeuxVideoComponent },
-      { path: 'voyage', component: VoyageComponent },
-    ],
-  },
-  {
-    path: 'projets',
-    component: ProjectsComponent,
-  },
-  { path: 'contact', component: ContactComponent },
-
+  { path: '', loadChildren: () => import('./features/homepage/homepage.module').then( m => m.HomepageModule)},
+  { path: 'contact', loadChildren: () => import('./features/contact/contact.module').then( m => m.ContactModule)},
+  { path: 'projets', loadChildren: () => import('./features/projects/projects.module').then( m => m.ProjectsModule)},
+  { path: 'presentation', loadChildren: () => import('./features/presentation/presentation.module').then( m => m.PresentationModule)},
   { path: '**', component: NotFoundComponent },
 ];
 

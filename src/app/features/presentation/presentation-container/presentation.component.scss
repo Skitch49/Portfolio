@@ -57,7 +57,7 @@
 }
 
 .ordi {
-  background-image: url(../../assets/images/ordi-ouvert.png);
+  background-image: url(../../../../assets/images/ordi-ouvert.png);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -192,7 +192,7 @@ h2 {
 }
 @media (min-width: 975px) {
   .ordi {
-    background-image: url(../../assets/images/ordi-ouvert.png);
+    background-image: url(../../../../assets/images/ordi-ouvert.png);
   }
 }
 
@@ -276,7 +276,7 @@ h2 {
   .ordi {
     align-items: normal;
     background-size: contain;
-    background-image: url(../../assets/images/feuille.png) !important;
+    background-image: url(../../../../assets/images/feuille.png) !important;
   }
 
   #title-hobby {
