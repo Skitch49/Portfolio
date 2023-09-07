@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import emailjs from '@emailjs/browser';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
+  public envoie = false;
+  public isSubmitted = false;
   //getter
   get nom() {
     return this.form.get('nom');
@@ -26,9 +28,24 @@ export class ContactComponent {
     message: ['',Validators.required],
   });
 
-  public submit(): void {
-    // console.log(this.form.value);
-    // this.form.reset();
-    // console.log(this.form);
+  async submit() {
+    this.isSubmitted = true;
+
+    if(this.form.valid){
+      emailjs.init('fgE238biR3koMQoGh');
+      let response = await emailjs.send("service_zw2s6sp","template_w1hgv7m",{
+      from_name: this.form.value.nom,
+      message: this.form.value.message,
+      reply_to: this.form.value.email,
+      from_email: this.form.value.email,
+      });
+      this.form.reset();
+      this.envoie = true;
+    }
+    else{
+      this.envoie = false;
+    }
+
+
   }
 }

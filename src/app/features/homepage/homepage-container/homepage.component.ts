@@ -1,5 +1,6 @@
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
-import { AfterViewInit, Component, HostListener } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 @Component({
@@ -30,14 +31,15 @@ import { Router } from '@angular/router';
     ])
   ]
 })
-export class HomepageComponent implements AfterViewInit {
+export class HomepageComponent implements AfterViewInit, OnInit{
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private meta: Meta, private title: Title) {}
 
   planet: boolean;
   astronaute: any;
   ngOnInit() {
     this.checkScreenWidth();
+
   }
 
   checkScreenWidth() {

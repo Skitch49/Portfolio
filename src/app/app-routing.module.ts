@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ContactComponent } from './features/contact/contact-container/contact.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 
@@ -9,7 +8,7 @@ const routes: Routes = [
   { path: 'contact', loadChildren: () => import('./features/contact/contact.module').then( m => m.ContactModule)},
   { path: 'projets', loadChildren: () => import('./features/projects/projects.module').then( m => m.ProjectsModule)},
   { path: 'presentation', loadChildren: () => import('./features/presentation/presentation.module').then( m => m.PresentationModule)},
-  { path: '**', component: NotFoundComponent },
+  { path: '**', redirectTo: ''},
 ];
 
 @NgModule({

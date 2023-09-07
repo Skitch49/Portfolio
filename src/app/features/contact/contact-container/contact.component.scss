@@ -2,6 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  .box.ng-valid{
+    .box-button{
+      background-color: #00dfc4;
+    }
+  }
 }
 .container-form {
     display: flex;
@@ -42,9 +47,25 @@
         letter-spacing: 0.2em;
       }
   
-      &:valid,
+
       &:focus {
         border: 1px solid #3b89b9;
+
+      }
+      &.ng-touched.ng-valid{
+        border: 1px solid #00dfc4;
+      }
+      &.ng-touched.ng-invalid{
+        border: 1px solid #fa4e4e;
+        &.ng-dirty ~ span{
+          background-color: #fa4e4e!important;
+          border-color: #fa4e4e!important;
+          }
+      }
+      & ~.errors{
+        position: relative;
+        top: -15px;
+        text-shadow: 0 0 black;
       }
     }
   

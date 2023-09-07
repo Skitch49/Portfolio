@@ -9,6 +9,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PRESENTATION_ROUTES } from './presentation.routes';
+import { MaterialModule } from 'src/app/shared/modules/material.module';
 
 
 
@@ -22,6 +23,7 @@ import { PRESENTATION_ROUTES } from './presentation.routes';
   imports: [
     CommonModule,
     GoogleMapsModule,
+    MaterialModule,
     RouterModule.forChild(PRESENTATION_ROUTES),
   ]
 })
