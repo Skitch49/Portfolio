@@ -8,7 +8,6 @@ import emailjs from '@emailjs/browser';
 })
 export class ContactComponent {
   public envoie = false;
-  public isSubmitted = false;
   //getter
   get nom() {
     return this.form.get('nom');
@@ -29,7 +28,7 @@ export class ContactComponent {
   });
 
   async submit() {
-    this.isSubmitted = true;
+
 
     if(this.form.valid){
       emailjs.init('fgE238biR3koMQoGh');

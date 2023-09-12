@@ -5,6 +5,11 @@
   .box.ng-valid{
     .box-button{
       background-color: #00dfc4;
+      cursor: pointer!important;
+      &:hover {
+        transform: scale(1.02);
+        transition: 0.2s;
+      }
     }
   }
 }
@@ -83,11 +88,8 @@
   
   #btn-connexion {
     transition: 0.2s;
-  
-    &:hover {
-      transform: scale(1.02);
-      transition: 0.2s;
-    }
+    cursor: not-allowed;
+    
   }
   
   .box {

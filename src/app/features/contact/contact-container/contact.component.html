@@ -5,18 +5,18 @@
       <div class="inputBox">
         <input type="text" formControlName="nom">
         <span>Nom | Prénom</span>
-        <p *ngIf="nom.errors && nom.touched   || nom.untouched && isSubmitted" class="errors">Nom & prénom non renseigné !</p>
+        <p *ngIf="nom.errors && nom.touched" class="errors">Nom & prénom non renseigné !</p>
       </div>
       <div class="inputBox">
         <input type="text" formControlName="email">
         <span>Email</span>
-        <p *ngIf="email.errors && email.touched  || email.untouched && isSubmitted" class="errors">L'email n'est pas valide !</p>
+        <p *ngIf="email.errors && email.touched" class="errors">L'email n'est pas valide !</p>
 
       </div>
       <div class="inputBox">
         <textarea type="text" formControlName="message"></textarea>
         <span>Message</span>
-        <p *ngIf="message.errors && message.touched  || message.untouched && isSubmitted" class="errors">Aucun message !</p>
+        <p *ngIf="message.errors && message.touched" class="errors">Aucun message !</p>
       </div>
       <input type="submit" id="btn-connexion" value="Envoyer" name="submit" class="box-button">
     </div>

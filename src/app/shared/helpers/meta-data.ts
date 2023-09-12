@@ -1,6 +1,6 @@
 const metaData: MetaData = {
     '/': {
-      title: 'Portfolio | Delaunay Alexis ',
+      title: 'Portfolio | Alexis Delaunay',
       metas: {
         description: 'Portfolio de Delaunay Alexis, étudiant et développeur web en alternance à MyDigitalSchool située à Angers.',
         'og:title': 'Portfolio',
@@ -8,7 +8,7 @@ const metaData: MetaData = {
       },
     },
     '/cv': {
-      title: 'CV | Delaunay Alexis',
+      title: 'CV | Alexis Delaunay',
       metas: {
         description: `Développeur web passionné et créatif, je suis actuellement en cours d'obtention d'un MBA Développeur Full Stack à MyDigitalSchool Angers.`,
         'og:title': 'Mon CV',
@@ -16,7 +16,7 @@ const metaData: MetaData = {
       },
     },
     '/presentation': {
-        title: 'Presentation | Delaunay Alexis',
+        title: 'Presentation | Alexis Delaunay',
         metas: {
           description: `Salut, je suis Alexis, j'ai 22 ans et je suis actuellement en 2ème année de Master Développeur Full Stack à MyDigitalSchool situé à Angers pour aquérir le plus de connaissance possible afin d'en faire mon métier.`,
           'og:title': 'Presentation',
@@ -24,7 +24,7 @@ const metaData: MetaData = {
         },
       },
       '/presentation/voyage': {
-        title: 'Voyage | Delaunay Alexis',
+        title: 'Voyage | Alexis Delaunay',
         metas: {
           description: `Voici la plupart des lieux ou je suis aller jusqu'à aujourd'hui.`,
           'og:title': 'Voyage',
@@ -32,7 +32,7 @@ const metaData: MetaData = {
         },
       },
       '/presentation/jeux-video': {
-        title: 'Jeux Vidéo | Delaunay Alexis',
+        title: 'Jeux Vidéo | Alexis Delaunay',
         metas: {
           description: `Grand joueur de jeux vidéo depuis enfant voici 4 jeux qui ont participée à ce que je suis aujourd'hui.`,
           'og:title': 'Voyage',
@@ -40,7 +40,7 @@ const metaData: MetaData = {
         },
       },
       '/presentation/music': {
-        title: 'Musique | Delaunay Alexis',
+        title: 'Musique | Alexis Delaunay',
         metas: {
           description: `Passionnée de rap FR voici un échantillon de ce que j'écoute. #ValdFC`,
           'og:title': 'Ma musique',
@@ -48,7 +48,7 @@ const metaData: MetaData = {
         },
       },
       '/projets': {
-        title: 'Projets | Delaunay Alexis',
+        title: 'Projets | Alexis Delaunay',
         metas: {
           description: `Voici quelques projets sur lesquels j'ai travailler. Beaucoup de sites vitrines en PHP WordPress Angular ou simplement du Javascript.`,
           'og:title': 'Mes projets',
@@ -56,7 +56,7 @@ const metaData: MetaData = {
         },
       },
       '/contact': {
-        title: 'Contact | Delaunay Alexis',
+        title: 'Contact | Alexis Delaunay',
         metas: {
           description: `Si tu as une question n'hésite pas le formulaire est fait pour ça !`,
           'og:title': 'Contactez moi !',
