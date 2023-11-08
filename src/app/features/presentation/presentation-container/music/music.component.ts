@@ -42,7 +42,7 @@ export class MusicComponent implements OnDestroy, AfterViewInit {
       {
         path: 'assets/audio/laisse-tomber.mp3',
         displayName: 'Laisse tomber',
-        cover: 'assets/audio/V.jpg',
+        cover: 'assets/audio/v.jpg',
         artist: 'Vald',
       },
       {
