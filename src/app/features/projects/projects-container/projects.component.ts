@@ -89,7 +89,7 @@ export class ProjectsComponent implements OnInit {
         techno: ['Angular', 'SCSS', 'TypeScript'],
         img: '../../assets/images/portfolio.png',
         description:
-          "Lorsque j'ai décidé de me lancer dans l'apprentissage du Framework front-end Angular, je me suis dis pourquoi pas m'entrainer avec la création d'un Portfolio. Et c'est ainsi que mon Portfolio a vue le Jour même si je reste concient qu' gros framework n'est pas le plus adapter pour un simple Portfolio. Je me suis aidez de material pour la création du site qui est disponible en PWA.",
+          "Lorsque j'ai décidé de me lancer dans l'apprentissage du Framework front-end Angular, je me suis dis pourquoi pas m'entrainer avec la création d'un Portfolio. Et c'est ainsi que mon Portfolio a vue le Jour même si je reste concient qu'un framework n'est pas le plus adapter pour un simple Portfolio. Je me suis aidez de material pour la création du site qui est disponible en PWA.",
         github: 'https://github.com/Skitch49/Portfolio',
         dateRealisation: 'Septembre 2023',
       },

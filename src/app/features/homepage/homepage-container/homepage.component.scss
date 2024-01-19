@@ -1,7 +1,10 @@
-body{
+body {
   overflow: hidden !important;
 }
-p,span,h1,h2{
+p,
+span,
+h1,
+h2 {
   cursor: default;
 }
 .container {
@@ -25,6 +28,8 @@ p,span,h1,h2{
   width: 5vw;
   will-change: transform;
   transition: transform 100ms ease;
+  user-select: none;
+
 }
 // planet
 .planet {
@@ -32,6 +37,8 @@ p,span,h1,h2{
   justify-content: flex-end;
   min-height: 30vh;
   align-items: flex-end;
+  user-select: none;
+
 }
 .soleil {
   z-index: 2;
@@ -42,6 +49,8 @@ p,span,h1,h2{
   mix-blend-mode: screen;
   overflow: hidden;
   right: 80px;
+  user-select: none;
+
 }
 @keyframes animSoleil {
   0% {
@@ -60,6 +69,8 @@ p,span,h1,h2{
   position: relative;
   right: 160px;
   top: -10px;
+  user-select: none;
+
 }
 
 @keyframes animLune {
@@ -76,6 +87,8 @@ p,span,h1,h2{
 .sectionWave {
   position: relative;
   width: 100%;
+  user-select: none;
+
 }
 section .waves {
   position: relative;
@@ -88,6 +101,8 @@ section .waves .wave {
   width: 100%;
   height: 65px;
   background-size: 1000px 100px;
+  user-select: none;
+
 }
 
 section .waves .wave#wave1 {
@@ -142,6 +157,8 @@ section .waves .wave#wave4 {
   position: absolute;
   bottom: 11.9em;
   left: 2vh;
+  user-select: none;
+
 }
 .beach {
   position: absolute;
@@ -149,90 +166,90 @@ section .waves .wave#wave4 {
   bottom: 0;
   z-index: 2;
   height: 250px;
+  user-select: none;
 }
 
 // Btn cv
 
-    .btn-cv{
-          cursor: pointer;
-          font-weight: 600;
-          color: #e3e3e3;
-          text-shadow: 2px 0px 2px black;
-          margin-top: 50px;
-          position: relative;
-          display: inline-block;
-          padding: 15px 30px;
-          margin-bottom: 15px;
-          color: #fff;
-          text-transform: uppercase;
-          letter-spacing: 4px;
-          text-decoration: none;
-          font-size: 24px;
-          overflow: hidden;
-          transition: 0.2s;
-          &:hover{
-              color: #fff!important;
-              text-shadow: none;
-              background: #2196f3;
-              box-shadow: 0 0 2px #2196f3, 0 0 5px #2196f3, 0 0 4px #2196f3;
-              transition-delay: 0.5s;
-              span{
-                  &:nth-child(1){
-                      left: 100%;
-                      transition: 0.5s;
-                  }
-                  &:nth-child(3){
-                      right: 100%;
-                      transition: 0.5s;
-                      transition-delay: 0.25s;
-                  }
-                  &:nth-child(2){
-                      top: 100%;
-                      transition: 0.5s;
-                      transition-delay: 0.125s;
-                  }
-                  &:nth-child(4){
-                      bottom: 100%;
-                      transition: 0.5s;
-                      transition-delay: 0.375s;
-                  }
-              }
-          }
-          span{
-              position: absolute;
-              display: block;
-              &:nth-child(1){
-                  top: 0;
-                  left: -100%;
-                  width: 100%;
-                  height: 2px;
-                  background: linear-gradient(90deg, transparent, #2196f3);
-              }
-              &:nth-child(3){
-                  bottom: 0;
-                  right: -100%;
-                  width: 100%;
-                  height: 2px;
-                  background: linear-gradient(270deg, transparent, #2196f3);
-              }
-              &:nth-child(2){
-                  top: -100%;
-                  right: 0;
-                  width: 2px;
-                  height: 100%;
-                  background: linear-gradient(180deg, transparent, #2196f3);
-              }
-              &:nth-child(4){
-                  bottom: -100%;
-                  left: 0;
-                  width: 2px;
-                  height: 100%;
-                  background: linear-gradient(360deg, transparent, #2196f3);
-              }
-              
-          }
+.btn-cv {
+  cursor: pointer;
+  font-weight: 600;
+  color: #e3e3e3;
+  text-shadow: 2px 0px 2px black;
+  margin-top: 50px;
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  margin-bottom: 15px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-decoration: none;
+  font-size: 24px;
+  overflow: hidden;
+  transition: 0.2s;
+  &:hover {
+    color: #fff !important;
+    text-shadow: none;
+    background: #2196f3;
+    box-shadow: 0 0 2px #2196f3, 0 0 5px #2196f3, 0 0 4px #2196f3;
+    transition-delay: 0.5s;
+    span {
+      &:nth-child(1) {
+        left: 100%;
+        transition: 0.5s;
       }
-    
+      &:nth-child(3) {
+        right: 100%;
+        transition: 0.5s;
+        transition-delay: 0.25s;
+      }
+      &:nth-child(2) {
+        top: 100%;
+        transition: 0.5s;
+        transition-delay: 0.125s;
+      }
+      &:nth-child(4) {
+        bottom: 100%;
+        transition: 0.5s;
+        transition-delay: 0.375s;
+      }
+    }
+  }
+  span {
+    position: absolute;
+    display: block;
+    &:nth-child(1) {
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #2196f3);
+    }
+    &:nth-child(3) {
+      bottom: 0;
+      right: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(270deg, transparent, #2196f3);
+    }
+    &:nth-child(2) {
+      top: -100%;
+      right: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(180deg, transparent, #2196f3);
+    }
+    &:nth-child(4) {
+      bottom: -100%;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(360deg, transparent, #2196f3);
+    }
+  }
+}
+
 // Stars
 .wrapper {
   height: 100%;
@@ -249,6 +266,7 @@ section .waves .wave#wave4 {
   letter-spacing: 6px;
   margin-top: -60px;
   padding-left: 10px;
+  z-index: 11;
 
   h1 {
     font-size: 1.6em;
@@ -256,7 +274,6 @@ section .waves .wave#wave4 {
   }
   h2 {
     font-size: 1.4em;
-
   }
   span {
     display: block;
@@ -776,24 +793,25 @@ section .waves .wave#wave4 {
 }
 
 // Réseaux sociaux
-.wrapper-reseaux{
+.wrapper-reseaux {
   display: flex;
   z-index: 2;
   position: relative;
   align-items: center;
   overflow: hidden;
-  img{
+  img {
     width: 50px;
     height: 50px;
     cursor: pointer;
+    user-select: none;
   }
- #github{
-  width: 38px;
-  height: 38px;
-  margin: 0 8px;
- }
+  #github {
+    width: 38px;
+    height: 38px;
+    margin: 0 8px;
+  }
 }
- 
+
 // Media Query
 @media (max-width: 700px) {
   #title {
@@ -812,7 +830,7 @@ section .waves .wave#wave4 {
   .island {
     display: none;
   }
-  .waves{
+  .waves {
     display: none;
   }
 }
