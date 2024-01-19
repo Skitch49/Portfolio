@@ -29,7 +29,6 @@ h2 {
   will-change: transform;
   transition: transform 100ms ease;
   user-select: none;
-
 }
 // planet
 .planet {
@@ -38,7 +37,6 @@ h2 {
   min-height: 30vh;
   align-items: flex-end;
   user-select: none;
-
 }
 .soleil {
   z-index: 2;
@@ -50,7 +48,6 @@ h2 {
   overflow: hidden;
   right: 80px;
   user-select: none;
-
 }
 @keyframes animSoleil {
   0% {
@@ -70,7 +67,6 @@ h2 {
   right: 160px;
   top: -10px;
   user-select: none;
-
 }
 
 @keyframes animLune {
@@ -88,7 +84,6 @@ h2 {
   position: relative;
   width: 100%;
   user-select: none;
-
 }
 section .waves {
   position: relative;
@@ -102,7 +97,6 @@ section .waves .wave {
   height: 65px;
   background-size: 1000px 100px;
   user-select: none;
-
 }
 
 section .waves .wave#wave1 {
@@ -158,7 +152,6 @@ section .waves .wave#wave4 {
   bottom: 11.9em;
   left: 2vh;
   user-select: none;
-
 }
 .beach {
   position: absolute;
@@ -188,6 +181,7 @@ section .waves .wave#wave4 {
   font-size: 24px;
   overflow: hidden;
   transition: 0.2s;
+  z-index: 11;
   &:hover {
     color: #fff !important;
     text-shadow: none;
@@ -266,8 +260,6 @@ section .waves .wave#wave4 {
   letter-spacing: 6px;
   margin-top: -60px;
   padding-left: 10px;
-  z-index: 11;
-
   h1 {
     font-size: 1.6em;
     margin-bottom: 4rem;
