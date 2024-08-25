@@ -7,7 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { HomepageModule } from './features/homepage/homepage.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -18,6 +18,7 @@ import { HomepageModule } from './features/homepage/homepage.module';
     NotFoundComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,

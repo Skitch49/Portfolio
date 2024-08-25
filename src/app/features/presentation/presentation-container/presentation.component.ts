@@ -1,4 +1,4 @@
-import { AfterViewInit, Component} from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 
 @Component({
   selector: 'app-presentation',
@@ -11,7 +11,11 @@ export class PresentationComponent implements AfterViewInit {
     let y = 0;
     let z = 0;
 
-    let text1 = `Salut, je suis Alexis, j'ai 22 ans et je suis actuellement en 2ème année de Master Développeur Full Stack à MyDigitalSchool situé à Angers pour aquérir le plus de connaissance possible afin d'en faire mon métier.`;
+    const date1 = new Date('2001-01-16');
+    const date2 = new Date();
+    const age = date2.getFullYear() - date1.getFullYear();
+
+    let text1 = `Salut, je suis Alexis, j'ai ${age} ans et je suis actuellement en 2ème année de Master Développeur Full Stack à MyDigitalSchool situé à Angers pour aquérir le plus de connaissance possible afin d'en faire mon métier.`;
     let text2 = `J'aime le fait d'avoir la possibilité de pouvoir créer sans limite et apprendre à maitriser de nouvelles technologies.`;
     let text3 = `Fan d'astronomie & de rap fr (surtout Vald), toujours partant pour sortir boire un verre 😄`;
     function Saisie() {

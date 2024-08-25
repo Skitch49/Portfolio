@@ -1,4 +1,8 @@
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { interval, Subscription, switchMap } from 'rxjs';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { SpotifyService } from 'src/app/shared/services/spotify.service';
 
 interface Song {
   path: string;
@@ -22,8 +26,18 @@ export class MusicComponent implements OnDestroy, AfterViewInit {
   music: HTMLAudioElement;
   songs: Song[];
   musicIndex: number;
+  //Spotify
+  topTracks: any[] = [];
+  currentTrack: any;
+  isLoggedIn = false;
 
-  constructor() {
+  private subscription: Subscription = new Subscription();
+
+  constructor(
+    private spotifyService: SpotifyService,
+    private authService: AuthService,
+    private fb: FormBuilder
+  ) {
     this.imageSrc = '';
     this.currentSong = {} as Song;
     this.currentTime = 0;
@@ -143,7 +157,7 @@ export class MusicComponent implements OnDestroy, AfterViewInit {
       },
       {
         path: 'assets/audio/odeur-de-l-essence.mp3',
-        displayName: 'L\'odeur de l\'essence',
+        displayName: "L'odeur de l'essence",
         cover: 'assets/audio/civilisation.jpg',
         artist: 'Orelsan',
       },
@@ -189,7 +203,7 @@ export class MusicComponent implements OnDestroy, AfterViewInit {
 
   ngAfterViewInit(): void {
     window.scrollTo({
-      top: 2000,
+      top: 975,
       behavior: 'smooth',
     });
   }
@@ -250,18 +264,34 @@ export class MusicComponent implements OnDestroy, AfterViewInit {
   }
 
   formatTime(time: number): string {
-    const format = (t: number): string => String(Math.floor(t)).padStart(2, '0');
+    const format = (t: number): string =>
+      String(Math.floor(t)).padStart(2, '0');
     const minutes = format(time / 60);
     const seconds = format(time % 60);
     return `${minutes}:${seconds}`;
   }
-
+login(): void {
+    this.authService.login();
+  }
   ngOnInit(): void {
+    this.authService.handleAuthCallback();
+    const token = this.authService.getAccessToken();
+    if (token) {
+      this.isLoggedIn = true;
+    } else {
+      this.isLoggedIn = false;
+      this.authService.login(); // Redirect to login if no token
+    }
+    this.getCurrentTrack();
+    this.firstCurrentTrack();
     const firstSong = this.songs[this.musicIndex];
     this.loadMusic(firstSong);
-
+    this.getTopTracks('medium_term', 20,'tracks');
     this.music.addEventListener('ended', () => this.changeMusic(1));
     this.music.addEventListener('timeupdate', () => this.updateProgressBar());
+    this.subscribeToTimeRangeChanges();
+    this.subscribeToLimitChanges();
+    this.subscribeToTypeChanges();
   }
 
   ngOnDestroy(): void {
@@ -269,5 +299,84 @@ export class MusicComponent implements OnDestroy, AfterViewInit {
       this.music.pause();
       this.music = null;
     }
+    this.subscription.unsubscribe();
+  }
+
+  getTopTracks(timeRange: string, limit: number,type: string) {
+    this.spotifyService.getTopTracks(timeRange, limit, type).subscribe((data) => {
+      this.topTracks = data.items;
+    });
+  }
+
+  getCurrentTrack() {
+    if (this.isLoggedIn) {
+      this.subscription.add(
+        interval(20000)
+          .pipe(switchMap(() => this.spotifyService.getCurrentlyPlayingTrack()))
+          .subscribe((data) => {
+            if (data) {
+              this.currentTrack = data.item;
+            } else {
+              this.currentTrack = null;
+            }
+          })
+      );
+    }
+  }
+  firstCurrentTrack() {
+    this.subscription.add(
+      this.spotifyService.getCurrentlyPlayingTrack().subscribe((data) => {
+        if (data) {
+          this.currentTrack = data.item;
+        } else {
+          this.currentTrack = null;
+        }
+      })
+    );
+  }
+
+  public formTopTrack: FormGroup = this.fb.group({
+    type: ['tracks', Validators.required],
+    time_range: [
+      'medium_term',
+      Validators.compose([Validators.required, Validators.minLength(4)]),
+    ],
+    limit: [20, Validators.required],
+  });
+
+  get timeRange() {
+    return this.formTopTrack.get('time_range');
+  }
+  get limit() {
+    return this.formTopTrack.get('limit');
+  }
+
+  get type() {
+    return this.formTopTrack.get('type');
+  }
+
+  subscribeToTimeRangeChanges(): void {
+    this.timeRange?.valueChanges.subscribe((timeRange) => {
+      this.getTopTracks(timeRange, this.limit?.value, this.type?.value);
+    });
+  }
+
+  subscribeToLimitChanges(): void {
+    this.limit?.valueChanges.subscribe((limit) => {
+      console.log('limit change' + limit);
+      this.getTopTracks(this.timeRange?.value, limit, this.type?.value);
+    });
+  }
+
+  subscribeToTypeChanges(): void {
+    this.type?.valueChanges.subscribe((type) => {
+      console.log('type change' + type);
+      this.topTracks = [];
+      this.getTopTracks(this.timeRange?.value, this.limit?.value, type);
+    });
+  }
+
+  navigateToExternalLink(link: string) {
+    window.open(link, '_blank'); // Ouvre le lien dans un nouvel onglet
   }
 }

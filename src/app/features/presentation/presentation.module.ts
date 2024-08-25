@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PRESENTATION_ROUTES } from './presentation.routes';
 import { MaterialModule } from 'src/app/shared/modules/material.module';
+import { FormModule } from 'src/app/shared/modules/form.module';
 
 
 
@@ -22,6 +23,7 @@ import { MaterialModule } from 'src/app/shared/modules/material.module';
   ],
   imports: [
     CommonModule,
+    FormModule,
     GoogleMapsModule,
     MaterialModule,
     RouterModule.forChild(PRESENTATION_ROUTES),

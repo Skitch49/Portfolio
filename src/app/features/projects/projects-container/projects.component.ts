@@ -38,17 +38,28 @@ export class ProjectsComponent implements OnInit {
   ngOnInit(): void {
     this.projects = [
       {
-        id: 1,
-        name: 'Algina',
-        type: 'Site vitrine',
-        techno: ['WordPress', 'PHP', 'Bootstrapp', 'JS'],
-        img: '../../assets/images/algina.jpg',
+        name: 'VALD FC',
+        type: 'clone Netflix',
+        techno: ['Angular', 'nodeJS', 'MongoDB', 'Docker'],
+        img: '../../assets/images/vald-fc.png',
         description:
-          "Lors de mon stage de BTS j'ai appris à créer des thèmes WordPress Personnalisés grâce à l'entreprise Azerty Consulting au sein d'Angers French Tech. Le site web Algina aura été mon tout premier projet.",
-        dateRealisation: 'Février 2021',
+          "Projet personnel fait en parallèle de mes études en 2ème année de master. Clone de Netflix sur toutes les interviews et clips de VALD. J'ai d'abord du créer l'API REST avat de m'attaquer au frontend et de déployer le tout sur un VPS via Docker.",
+        siteweb: 'http://alexis.delaunay.angers.mds-project.fr/',
+        github: 'https://github.com/Skitch49/vald-fc',
+        dateRealisation: 'Février 2024 - Avril 2024',
       },
       {
-        id: 2,
+        name: 'Lovely Nails by Prisci',
+        type: 'Site Vitrine',
+        techno: ['WordPress', 'PHP', 'JavaScript'],
+        img: '../../assets/images/lovely-nails.png',
+        description:
+          "Site WordPress fait pour un client à Saint-Nicolas-de-Bourgueil. Le site met en avant les différents produits proposés par l'onglerie. Les différents éléments sont personnalisable dans l'administration WordPress via ACF et le thème custom en PHP.",
+        siteweb: 'https://lovely-nails-by-prisci.fr/',
+        github: 'https://github.com/Skitch49/lovely-nails-by-prisci',
+        dateRealisation: 'Mai 2024 - Juin 2024',
+      },
+      {
         name: 'Angers Loire Campus',
         type: 'Site vitrine + back-office',
         techno: ['WordPress', 'PHP', 'JS'],
@@ -60,7 +71,6 @@ export class ProjectsComponent implements OnInit {
         dateRealisation: 'Juin 2022 - Septembre 2022',
       },
       {
-        id: 3,
         name: 'Sup Ouest Avenir',
         type: 'Site vitrine',
         techno: ['WordPress', 'PHP', 'React'],
@@ -71,7 +81,6 @@ export class ProjectsComponent implements OnInit {
         dateRealisation: 'Avril 2023',
       },
       {
-        id: 5,
         name: 'Logiciel Durable',
         type: 'Traitement de données',
         techno: ['PHP', 'JS'],
@@ -83,7 +92,6 @@ export class ProjectsComponent implements OnInit {
         dateRealisation: 'Mai 2023 - Juillet 2023',
       },
       {
-        id: 6,
         name: 'Portfolio',
         type: 'Site vitrine',
         techno: ['Angular', 'SCSS', 'TypeScript'],
@@ -94,7 +102,6 @@ export class ProjectsComponent implements OnInit {
         dateRealisation: 'Septembre 2023',
       },
       {
-        id: 7,
         name: 'Clone SWAPI',
         type: 'API',
         techno: ['nodeJS', 'swagger', 'MongoDB'],
@@ -104,7 +111,6 @@ export class ProjectsComponent implements OnInit {
         dateRealisation: '2023',
       },
       {
-        id: 8,
         name: 'Password Guesser',
         type: 'Algorithme',
         techno: ['POO', 'Python'],
@@ -114,13 +120,21 @@ export class ProjectsComponent implements OnInit {
         dateRealisation: '2023',
       },
       {
-        id: 9,
         name: 'Progressive Web Application',
         type: 'PWA',
         techno: ['VueJS'],
         img: '../../assets/images/logo-mds.png',
         description: 'Projet de première année de master à MDS situé à Angers.',
         dateRealisation: '2023',
+      },
+      {
+        name: 'Algina',
+        type: 'Site vitrine',
+        techno: ['WordPress', 'PHP', 'Bootstrapp', 'JS'],
+        img: '../../assets/images/algina.jpg',
+        description:
+          "Lors de mon stage de BTS j'ai appris à créer des thèmes WordPress Personnalisés grâce à l'entreprise Azerty Consulting au sein d'Angers French Tech. Le site web Algina aura été mon tout premier projet.",
+        dateRealisation: 'Février 2021',
       },
     ];
   }

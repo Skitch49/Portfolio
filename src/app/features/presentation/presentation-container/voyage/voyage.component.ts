@@ -90,10 +90,10 @@ export class VoyageComponent implements OnInit {
             nom: 'Angers',
             position: { lat: 47.4784, lng: -0.5632 }
           },
-          {
-            nom: 'Saumur',
-            position: { lat: 47.2602, lng: -0.0781 }
-          },
+          // {
+          //   nom: 'Saumur',
+          //   position: { lat: 47.2602, lng: -0.0781 }
+          // },
           {
             nom: 'Tours',
             position: { lat: 47.3941, lng: 0.6848 }
@@ -122,14 +122,14 @@ export class VoyageComponent implements OnInit {
             nom: 'La Grande-Motte',
             position: { lat: 43.5567, lng: 4.0834 }
           },
-          {
-            nom: 'Futuroscope',
-            position: { lat: 46.6667, lng: 0.3667 }
-          },
-          {
-            nom: 'Thouars',
-            position: { lat: 46.9818, lng: -0.2087 }
-          },
+          // {
+          //   nom: 'Futuroscope',
+          //   position: { lat: 46.6667, lng: 0.3667 }
+          // },
+          // {
+          //   nom: 'Thouars',
+          //   position: { lat: 46.9818, lng: -0.2087 }
+          // },
           {
             nom: 'Mandailles',
             position: { lat: 44.5294, lng: 2.7277 }
@@ -170,10 +170,10 @@ export class VoyageComponent implements OnInit {
             nom: 'Chartres',
             position: { lat: 48.4439, lng: 1.4890 }
           },
-          {
-            nom: 'Phare du cap Fréhel',
-            position: { lat: 48.68411372890535, lng: -2.318787480958804 }
-          },
+          // {
+          //   nom: 'Phare du cap Fréhel',
+          //   position: { lat: 48.68411372890535, lng: -2.318787480958804 }
+          // },
           {
             nom: 'Erquy',
             position: { lat: 48.6328, lng: -2.4679 }
@@ -182,50 +182,50 @@ export class VoyageComponent implements OnInit {
             nom: 'Guérande',
             position: { lat: 47.3267, lng: -2.4189 }
           },
-          {
-            nom: 'Noirmoutier',
-            position: { lat: 47.0039, lng: -2.2400 }
-          },
-          {
-            nom: 'Ile de Ré',
-            position: { lat: 46.1795, lng: -1.3217 }
-          },
-          {
-            nom: 'Ile d\'Oléron',
-            position: { lat: 45.9546, lng: -1.3064 }
-          },
-          {
-            nom: 'Fort Boyard',
-            position: { lat: 45.9981, lng: -1.2146 }
-          },
-          {
-            nom: 'Saint Brevin',
-            position: { lat: 47.2443, lng: -2.1770 }
-          },
-          {
-            nom: 'La Bernerie en Retz',
-            position: { lat: 47.0962, lng: -2.0285 }
-          },
-          {
-            nom: 'Saint Hilaire de Riez',
-            position: { lat: 46.7329, lng: -1.9580 }
-          },
-          {
-            nom: 'Bretignolles sur Mer',
-            position: { lat: 46.6264, lng: -1.8756 }
-          },
-          {
-            nom: 'Niort',
-            position: { lat: 46.3241, lng: -0.4585 }
-          },
-          {
-            nom: 'Cimetière militaire Américain',
-            position: { lat: 49.359208724313454, lng: -0.8554059970855149 }
-          },
-          {
-            nom: 'Cimetière militaire Allemand',
-            position: { lat: 49.34294771580071, lng: -1.0265923261414558 }
-          },
+          // {
+          //   nom: 'Noirmoutier',
+          //   position: { lat: 47.0039, lng: -2.2400 }
+          // },
+          // {
+          //   nom: 'Ile de Ré',
+          //   position: { lat: 46.1795, lng: -1.3217 }
+          // },
+          // {
+          //   nom: 'Ile d\'Oléron',
+          //   position: { lat: 45.9546, lng: -1.3064 }
+          // },
+          // {
+          //   nom: 'Fort Boyard',
+          //   position: { lat: 45.9981, lng: -1.2146 }
+          // },
+          // {
+          //   nom: 'Saint Brevin',
+          //   position: { lat: 47.2443, lng: -2.1770 }
+          // },
+          // {
+          //   nom: 'La Bernerie en Retz',
+          //   position: { lat: 47.0962, lng: -2.0285 }
+          // },
+          // {
+          //   nom: 'Saint Hilaire de Riez',
+          //   position: { lat: 46.7329, lng: -1.9580 }
+          // },
+          // {
+          //   nom: 'Bretignolles sur Mer',
+          //   position: { lat: 46.6264, lng: -1.8756 }
+          // },
+          // {
+          //   nom: 'Niort',
+          //   position: { lat: 46.3241, lng: -0.4585 }
+          // },
+          // {
+          //   nom: 'Cimetière militaire Américain',
+          //   position: { lat: 49.359208724313454, lng: -0.8554059970855149 }
+          // },
+          // {
+          //   nom: 'Cimetière militaire Allemand',
+          //   position: { lat: 49.34294771580071, lng: -1.0265923261414558 }
+          // },
           {
             nom: 'Biarritz',
             position: { lat: 43.4832523, lng: -1.5592776 }
@@ -262,6 +262,26 @@ export class VoyageComponent implements OnInit {
             nom: 'Dune du Pilat',
             position: { lat: 44.597758, lng: -1.206551 }
           },
+          {
+            nom: 'La Canée',
+            position: { lat: 35.5155, lng: 24.0207 }
+          },
+          {
+            nom: 'Réthymnon',
+            position: { lat: 35.3668, lng: 24.4760 }
+          },
+          {
+            nom: 'Matala',
+            position: { lat: 34.9935604319572, lng: 24.749431588368672 }
+          },
+          {
+            nom: 'Héraklion',
+            position: { lat: 35.3404, lng: 25.1442 }
+          },
+          {
+            nom: 'Agios Nikolaos',
+            position: { lat: 35.1887, lng: 25.7154 }
+          }
           
           // Ajoutez d'autres points d'intérêt selon vos besoins
         );

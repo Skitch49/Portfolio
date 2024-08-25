@@ -1,7 +1,13 @@
-import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
+import {
+  animate,
+  query,
+  stagger,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-homepage',
@@ -18,22 +24,23 @@ import { Router } from '@angular/router';
     //   ]))
     // ]),
 
-    trigger("container", [
-      transition(":enter", [
-        query(".sectionWave", [
+    trigger('container', [
+      transition(':enter', [
+        query('.sectionWave', [
           style({
             opacity: 0,
-            transform: 'translateY(200px)'
+            transform: 'translateY(200px)',
           }),
-          animate('1000ms 600ms')
-        ])
-      ])
-    ])
-  ]
+          animate('1000ms 600ms'),
+        ]),
+      ]),
+    ]),
+  ],
 })
-export class HomepageComponent implements AfterViewInit, OnInit{
+export class HomepageComponent implements AfterViewInit, OnInit {
+  isLoggedIn: boolean = false;
 
-  constructor(private router: Router, private meta: Meta, private title: Title) {}
+  constructor() {}
 
   planet: boolean;
   astronaute: any;
@@ -41,6 +48,7 @@ export class HomepageComponent implements AfterViewInit, OnInit{
     this.checkScreenWidth();
 
   }
+
 
   checkScreenWidth() {
     if (window.innerWidth > 1200) {
@@ -78,6 +86,6 @@ export class HomepageComponent implements AfterViewInit, OnInit{
   }
 
   navigateToExternalLink(link: string) {
-    window.open(link, '_blank'); // Ouvre le lien dans un nouvel onglet
+    window.open(link, '_blank');
   }
 }

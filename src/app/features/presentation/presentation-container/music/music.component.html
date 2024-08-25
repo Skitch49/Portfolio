@@ -4,28 +4,198 @@
 />
 
 <div class="container-music" *ngIf="music">
-  <div class="background" [style.background-image]="'url(' + imageSrc + ')'" >
-  </div>
+  <div
+    class="background"
+    [style.background-image]="'url(' + imageSrc + ')'"
+  ></div>
 
   <div id="AnchorId" class="container-player">
     <div class="player-img">
-      <img  class="active" id="cover" [src]="imageSrc"/>
+      <img class="active" id="cover" [src]="imageSrc" />
     </div>
 
     <h2 id="music-title">{{ currentSong.displayName }}</h2>
     <h3 id="music-artist">{{ currentSong.artist }}</h3>
 
-    <div class="player-progress" id="player-progress" (click)="setProgressBar($event)">
-      <div class="progress" id="progress" [style.width.%]="progressPercent"></div>
+    <div
+      class="player-progress"
+      id="player-progress"
+      (click)="setProgressBar($event)"
+    >
+      <div
+        class="progress"
+        id="progress"
+        [style.width.%]="progressPercent"
+      ></div>
       <div class="music-duration">
-        <span id="current-time">{{ (currentTime || currentTime === 0) ? formatTime(currentTime) : '00:00' }}</span>
-        <span id="duration">{{ (duration || duration === 0) ? formatTime(duration) : '00:00' }}</span>
+        <span id="current-time">{{
+          currentTime || currentTime === 0 ? formatTime(currentTime) : "00:00"
+        }}</span>
+        <span id="duration">{{
+          duration || duration === 0 ? formatTime(duration) : "00:00"
+        }}</span>
       </div>
     </div>
     <div class="player-controls">
-      <i class="fa-solid fa-backward" id="prev" title="Previous" (click)="changeMusic(-1)"></i>
-      <i class="fa-solid fa-play play-button" id="play" title="Play" [ngClass]="{'fa-play': !isPlaying, 'fa-pause': isPlaying}" (click)="togglePlay()"></i>
-      <i class="fa-solid fa-forward" id="next" title="Next" (click)="changeMusic(1)"></i>
+      <i
+        class="fa-solid fa-backward"
+        id="prev"
+        title="Previous"
+        (click)="changeMusic(-1)"
+      ></i>
+      <i
+        class="fa-solid fa-play play-button"
+        id="play"
+        title="Play"
+        [ngClass]="{ 'fa-play': !isPlaying, 'fa-pause': isPlaying }"
+        (click)="togglePlay()"
+      ></i>
+      <i
+        class="fa-solid fa-forward"
+        id="next"
+        title="Next"
+        (click)="changeMusic(1)"
+      ></i>
+    </div>
+  </div>
+</div>
+<div class="container-current-track" *ngIf="currentTrack">
+  <div class="current-track">
+    <div class="track">
+      <a href="{{ currentTrack.uri }}" class="picture-track">
+        <img
+          src="{{ currentTrack.album.images[0].url }}"
+          alt="{{ currentTrack.name }}"
+        />
+      </a>
+      <div class="info-track">
+        <h2>Regarde ce que j'écoute actuellement !</h2>
+
+        <a class="track-name" href="{{ currentTrack.uri }}">
+          {{ currentTrack.name }}
+        </a>
+        <div class="artists">
+          <p>
+            <ng-container
+              *ngFor="let artist of currentTrack.artists; let last = last"
+            >
+              <a href="{{ artist.uri }}"> {{ artist.name }}</a
+              ><span *ngIf="!last">&nbsp;-&nbsp;</span></ng-container
+            >
+          </p>
+        </div>
+        <div class="loader">
+          <span class="stroke"></span>
+          <span class="stroke"></span>
+          <span class="stroke"></span>
+          <span class="stroke"></span>
+          <span class="stroke"></span>
+          <span class="stroke"></span>
+          <span class="stroke"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-spotify">
+  <h2>
+    Top {{ this.type?.value }} en
+    <span *ngIf="this.timeRange?.value === 'short_term'">4 semaines</span
+    ><span *ngIf="this.timeRange?.value === 'medium_term'">6 mois</span
+    ><span *ngIf="this.timeRange?.value === 'long_term'">1 ans</span>
+  </h2>
+  <form [formGroup]="formTopTrack">
+    <div class="item">
+      <label for="time_range">
+        Temps :
+        <select name="time_range" id="time_range" formControlName="time_range">
+          <option value="short_term">4 semaines</option>
+          <option value="medium_term" selected>6 mois</option>
+          <option value="long_term">1 ans</option>
+        </select>
+      </label>
+    </div>
+    <div class="item">
+      <label for="limit">
+        Limite :
+        <input
+          name="limit"
+          id="limit"
+          formControlName="limit"
+          type="number"
+          max="50"
+          min="1"
+          value="20"
+        />
+      </label>
+    </div>
+    <div class="item">
+      <label for="type">
+        Type :
+        <select name="type" id="type" formControlName="type">
+          <option value="tracks">tracks</option>
+          <option value="artists">artists</option>
+        </select>
+      </label>
+    </div>
+  </form>
+  <ul *ngIf="this.type?.value === 'tracks'">
+    <li *ngFor="let track of topTracks; let i = index">
+      <ng-container *ngIf="track">
+        <span># {{ i + 1 }}</span>
+        <a href="{{ track.uri }}">
+          <figure>
+            <img
+              src="{{ track.album.images[1].url }}"
+              alt="{{ track.artists[0].name }}"
+            />
+          </figure>
+        </a>
+        <div class="info-track">
+          <a href="{{ track.uri }}"> {{ track.name }} </a>
+          <div class="artists">
+            <ng-container *ngFor="let artist of track.artists; let last = last"
+              ><a href="{{ artist.uri }}"> {{ artist.name }}</a
+              ><span *ngIf="!last">&nbsp;-&nbsp;</span></ng-container
+            >
+          </div>
+        </div>
+      </ng-container>
+    </li>
+  </ul>
+  <ul *ngIf="this.type?.value === 'artists'">
+    <li *ngFor="let artist of topTracks; let i = index">
+      <ng-container *ngIf="artist">
+        <span># {{ i + 1 }}</span>
+
+        <a href="{{ artist.uri }}" *ngIf="artist.images">
+          <figure>
+            <img src="{{ artist.images[1].url }}" alt="{{ artist.name }}" />
+          </figure>
+        </a>
+        <div class="info-track">
+          <a href="{{ artist.uri }}"> {{ artist.name }} </a>
+        </div>
+      </ng-container>
+    </li>
+  </ul>
+  <div class="container-stat-fm">
+    <div class="stat-fm">
+      Si tu veux voir mes statistiques d'écoute avec bien plus de détails
+      <div
+        (click)="
+          navigateToExternalLink(
+            'https://stats.fm/user/skitch49?range=lifetime'
+          )
+        " class="btn-last-fm"
+      ><div class="logo">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+        C'est ici
+      </div>
     </div>
   </div>
 </div>
