@@ -288,6 +288,7 @@ export class VoyageComponent implements OnInit {
 
     // Créer une instance d'info-bulle
     this.infoWindow = new google.maps.InfoWindow();
+    
 
     this.pointsInteret.forEach(point => {
       const marker = new google.maps.Marker({
@@ -304,6 +305,8 @@ export class VoyageComponent implements OnInit {
           this.currentMarker = null;
         } else {
           this.infoWindow.setContent(point.nom);
+          this.infoWindow.setContent('<div style="max-width: 200px;">' + point.nom + '</div>');
+
           this.infoWindow.open(map, marker);
           this.currentMarker = marker;
         }
