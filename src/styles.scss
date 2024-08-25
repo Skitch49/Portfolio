@@ -28,3 +28,18 @@ body {
 }
 
 html, body { height: 100%; }
+
+// Scrollbar
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #141414; 
+}
+::-webkit-scrollbar-track {
+  background-color: #555555;
+}
+* {
+  scrollbar-color: #141414 #555555;
+  scrollbar-width: thin;
+}

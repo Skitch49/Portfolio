@@ -11,11 +11,15 @@ export class PresentationComponent implements AfterViewInit {
     let y = 0;
     let z = 0;
 
+<<<<<<< HEAD
     const date1 = new Date('2001-01-16');
     const date2 = new Date();
     const age = date2.getFullYear() - date1.getFullYear();
 
     let text1 = `Salut, je suis Alexis, j'ai ${age} ans et je suis actuellement en 2ème année de Master Développeur Full Stack à MyDigitalSchool situé à Angers pour aquérir le plus de connaissance possible afin d'en faire mon métier.`;
+=======
+    let text1 = `Salut, je suis Alexis, j'ai 23 ans et je suis actuellement en 2ème année de Master Développeur Full Stack à MyDigitalSchool situé à Angers pour aquérir le plus de connaissance possible afin d'en faire mon métier.`;
+>>>>>>> 3e1f856dca26de6ed9b2004ed81aa84cce411cda
     let text2 = `J'aime le fait d'avoir la possibilité de pouvoir créer sans limite et apprendre à maitriser de nouvelles technologies.`;
     let text3 = `Fan d'astronomie & de rap fr (surtout Vald), toujours partant pour sortir boire un verre 😄`;
     function Saisie() {

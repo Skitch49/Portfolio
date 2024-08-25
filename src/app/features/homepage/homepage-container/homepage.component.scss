@@ -28,6 +28,7 @@ h2 {
   width: 5vw;
   will-change: transform;
   transition: transform 100ms ease;
+  user-select: none;
 }
 // planet
 .planet {
@@ -35,6 +36,7 @@ h2 {
   justify-content: flex-end;
   min-height: 30vh;
   align-items: flex-end;
+  user-select: none;
 }
 .soleil {
   z-index: 2;
@@ -45,6 +47,7 @@ h2 {
   mix-blend-mode: screen;
   overflow: hidden;
   right: 80px;
+  user-select: none;
 }
 @keyframes animSoleil {
   0% {
@@ -63,6 +66,7 @@ h2 {
   position: relative;
   right: 160px;
   top: -10px;
+  user-select: none;
 }
 
 @keyframes animLune {
@@ -79,6 +83,7 @@ h2 {
 .sectionWave {
   position: relative;
   width: 100%;
+  user-select: none;
 }
 section .waves {
   position: relative;
@@ -91,6 +96,7 @@ section .waves .wave {
   width: 100%;
   height: 65px;
   background-size: 1000px 100px;
+  user-select: none;
 }
 
 section .waves .wave#wave1 {
@@ -145,6 +151,7 @@ section .waves .wave#wave4 {
   position: absolute;
   bottom: 11.9em;
   left: 2vh;
+  user-select: none;
 }
 .beach {
   position: absolute;
@@ -152,6 +159,7 @@ section .waves .wave#wave4 {
   bottom: 0;
   z-index: 2;
   height: 250px;
+  user-select: none;
 }
 
 // Btn cv
@@ -173,6 +181,7 @@ section .waves .wave#wave4 {
   font-size: 24px;
   overflow: hidden;
   transition: 0.2s;
+  z-index: 11;
   &:hover {
     color: #fff !important;
     text-shadow: none;
@@ -251,7 +260,6 @@ section .waves .wave#wave4 {
   letter-spacing: 6px;
   margin-top: -60px;
   padding-left: 10px;
-
   h1 {
     font-size: 1.6em;
     margin-bottom: 4rem;
@@ -784,56 +792,58 @@ section .waves .wave#wave4 {
   align-items: center;
   overflow: hidden;
   img {
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-  }
-  #github {
-    width: 38px;
-    height: 38px;
-    margin: 0 8px;
+    img {
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      user-select: none;
+    }
+    #github {
+      width: 38px;
+      height: 38px;
+      margin: 0 8px;
+    }
   }
 }
+  // Media Query
+  @media (max-width: 650px) {
+    .container {
+      height: calc(100vh - 60px);
+    }
+  }
 
-// Media Query
-@media (max-width: 650px) {
-  .container {
-    height: calc(100vh - 60px);
+  @media (max-width: 700px) {
+    #title {
+      font-size: 1.5em;
+      padding-left: 0;
+    }
   }
-}
+  @media (max-width: 500px) {
+    #title {
+      top: 25%;
+      font-size: 1.25em;
+      letter-spacing: 2px;
+    }
+  }
+  @media (max-height: 545px) {
+    .island {
+      display: none;
+    }
+    .waves {
+      display: none;
+    }
+  }
 
-@media (max-width: 700px) {
-  #title {
-    font-size: 1.5em;
-    padding-left: 0;
+  // anim social btn
+  @keyframes rotate360 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
-}
-@media (max-width: 500px) {
-  #title {
-    top: 25%;
-    font-size: 1.25em;
-    letter-spacing: 2px;
-  }
-}
-@media (max-height: 545px) {
-  .island {
-    display: none;
-  }
-  .waves {
-    display: none;
-  }
-}
 
-// anim social btn
-@keyframes rotate360 {
-  from {
-    transform: rotate(0deg);
+  .rotate-animation {
+    animation: rotate360 0.75s;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.rotate-animation {
-  animation: rotate360 0.75s;
-}

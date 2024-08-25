@@ -54,6 +54,7 @@
   width: 0;
   opacity: 0;
   box-shadow: 0 5px 30px 5px rgba(0, 0, 0, 0.5);
+  user-select: none;
 }
 
 .player-img:hover img {
@@ -102,6 +103,7 @@ h3 {
   top: -25px;
   display: flex;
   justify-content: space-between;
+  user-select: none;
 }
 
 .player-controls {
