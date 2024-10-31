@@ -62,7 +62,7 @@
 <div class="container-current-track" *ngIf="currentTrack">
   <div class="current-track">
     <div class="track">
-      <a href="{{ currentTrack.uri }}" class="picture-track">
+      <a href="{{ currentTrack.uri }}" target="_blank" class="picture-track">
         <img
           src="{{ currentTrack.album.images[0].url }}"
           alt="{{ currentTrack.name }}"
@@ -71,7 +71,7 @@
       <div class="info-track">
         <h2>Regarde ce que j'écoute actuellement !</h2>
 
-        <a class="track-name" href="{{ currentTrack.uri }}">
+        <a class="track-name" href="{{ currentTrack.uri }}" target="_blank">
           {{ currentTrack.name }}
         </a>
         <div class="artists">

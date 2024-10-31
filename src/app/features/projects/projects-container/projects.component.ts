@@ -38,20 +38,52 @@ export class ProjectsComponent implements OnInit {
   ngOnInit(): void {
     this.projects = [
       {
+        name: 'Voyages entre potes',
+        type: 'Site web',
+        techno: ['Javascript'],
+        img: '../../assets/images/voyages_entre_potes.png',
+        description:
+          'Mini projet pour faire découvrir mes voyages fait avec mes amis.',
+        siteweb: 'https://voyages-entre-potes.alexis-delaunay.fr/',
+        dateRealisation: 'Octobre 2024',
+      },
+      {
+        name: 'Générateur de tap in',
+        type: 'Tap In Generator',
+        techno: ['Javascript'],
+        img: '../../assets/images/tap_in_generator.png',
+        description:
+          "Mini projet pour générer des tweets populaires de twitter. Je ne suis pas l'auteur des tweet bien entendu...",
+        siteweb: 'https://tap-in-generator.alexis-delaunay.fr/',
+        github: 'https://github.com/Skitch49/tap-in-generator',
+        dateRealisation: 'Septembre 2024',
+      },
+      {
+        name: 'GTA 6 VS Miami',
+        type: 'image slider comparaison',
+        techno: ['Javascript'],
+        img: '../../assets/images/gta_6_vs_miami.png',
+        description:
+          "Mini projet pour apprendre a faire des slider de comparaison via l'input range",
+        siteweb: 'http://gta-6.alexis-delaunay.fr/',
+        github: 'https://github.com/Skitch49/image-slider-comparison',
+        dateRealisation: 'Septembre 2024',
+      },
+      {
         name: 'VALD FC',
-        type: 'clone Netflix',
+        type: 'clone Netflix - API + frontend',
         techno: ['Angular', 'nodeJS', 'MongoDB', 'Docker'],
         img: '../../assets/images/vald-fc.png',
         description:
           "Projet personnel fait en parallèle de mes études en 2ème année de master. Clone de Netflix sur toutes les interviews et clips de VALD. J'ai d'abord du créer l'API REST avat de m'attaquer au frontend et de déployer le tout sur un VPS via Docker.",
         siteweb: 'http://alexis.delaunay.angers.mds-project.fr/',
         github: 'https://github.com/Skitch49/vald-fc',
-        dateRealisation: 'Février 2024 - Avril 2024',
+        dateRealisation: '2024',
       },
       {
         name: 'Lovely Nails by Prisci',
         type: 'Site Vitrine',
-        techno: ['WordPress', 'PHP', 'JavaScript'],
+        techno: ['WordPress', 'PHP', 'Javascript'],
         img: '../../assets/images/lovely-nails.png',
         description:
           "Site WordPress fait pour un client à Saint-Nicolas-de-Bourgueil. Le site met en avant les différents produits proposés par l'onglerie. Les différents éléments sont personnalisable dans l'administration WordPress via ACF et le thème custom en PHP.",
@@ -62,7 +94,7 @@ export class ProjectsComponent implements OnInit {
       {
         name: 'Angers Loire Campus',
         type: 'Site vitrine + back-office',
-        techno: ['WordPress', 'PHP', 'JS'],
+        techno: ['WordPress', 'PHP', 'Javascript'],
         img: '../../assets/images/angers-loire-campus.png',
         description:
           "Ce projet m'a été confié lors de mon stage de bachelor par l'ESAIP. J'ai d'abord commencé par la partie back-office avec les fonctionnalités suivantes : Formulaire de connexion, Mot de passe oubliée, Création de dossiers, Stockage de fichier, Création Utilisateurs, Gestion des rôles. Puis j'ai fini mon stage par le site vitrine lorsque la maquette était prête c'est là que je me suis familliarisé avec Swiper JS qui est une librairie JS qui permet de créer des slilder moderne facilement.",
@@ -83,7 +115,7 @@ export class ProjectsComponent implements OnInit {
       {
         name: 'Logiciel Durable',
         type: 'Traitement de données',
-        techno: ['PHP', 'JS'],
+        techno: ['PHP', 'Javascript'],
         img: '../../assets/images/logiciel-durable.png',
         description:
           "POC qui permet d'enregistrer des données de tests de logiciels dans la cadre d'une étude Écoresponsable.",
@@ -130,7 +162,7 @@ export class ProjectsComponent implements OnInit {
       {
         name: 'Algina',
         type: 'Site vitrine',
-        techno: ['WordPress', 'PHP', 'Bootstrapp', 'JS'],
+        techno: ['WordPress', 'PHP', 'Bootstrapp', 'Javascript'],
         img: '../../assets/images/algina.jpg',
         description:
           "Lors de mon stage de BTS j'ai appris à créer des thèmes WordPress Personnalisés grâce à l'entreprise Azerty Consulting au sein d'Angers French Tech. Le site web Algina aura été mon tout premier projet.",

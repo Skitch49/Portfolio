@@ -1,4 +1,49 @@
-#map{
-    height: 100vh;
-    width: 100%;
+#map {
+  height: 100vh;
+  width: 100%;
+}
+.container-voyage {
+  background-color: var(--gray);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: #b2b2b2;
+  padding: 1rem 0;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  .info {
+    margin-bottom: 4px;
+  }
+}
+.btn-voyage {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background-color: #666;
+  padding: 4px;
+  border-radius: 8px;
+  margin-top: 1rem;
+  padding-right: 2rem;
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: #f5757c;
+    .logo {
+      transform: translate(-4px, -8px) rotate(6deg);
+    }
+  }
+
+
+  .logo {
+    height: 25px;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 6px;
+    transform: translate(-2px, 0);
+    align-items: flex-end;
+    margin-bottom: 8px;
+    transition: transform 0.2s ease-in-out;
+  }
 }

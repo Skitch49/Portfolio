@@ -7,11 +7,11 @@ import { VoyageComponent } from "./presentation-container/voyage/voyage.componen
 export const PRESENTATION_ROUTES: Routes = [
     {
         path: '',
-        component: PresentationComponent,
+        component: PresentationComponent,title:"Présentation | Alexis Delaunay",
         children: [
-          { path: 'music', component: MusicComponent },
-          { path: 'jeux-video', component: JeuxVideoComponent },
-          { path: 'voyage', component: VoyageComponent },
+          { path: 'music', component: MusicComponent,title:"Musique | Alexis Delaunay" },
+          { path: 'jeux-video', component: JeuxVideoComponent,title:"Jeux Vidéo | Alexis Delaunay" },
+          { path: 'voyage', component: VoyageComponent,title:"Voyage | Alexis Delaunay" },
         ],
       },
 ]

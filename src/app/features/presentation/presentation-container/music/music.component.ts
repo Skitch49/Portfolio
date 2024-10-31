@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { interval, Subscription, switchMap } from 'rxjs';
-import { AuthService } from 'src/app/shared/services/auth.service';
 import { SpotifyService } from 'src/app/shared/services/spotify.service';
 
 interface Song {
@@ -33,11 +32,7 @@ export class MusicComponent implements OnDestroy, AfterViewInit {
 
   private subscription: Subscription = new Subscription();
 
-  constructor(
-    private spotifyService: SpotifyService,
-    private authService: AuthService,
-    private fb: FormBuilder
-  ) {
+  constructor(private spotifyService: SpotifyService, private fb: FormBuilder) {
     this.imageSrc = '';
     this.currentSong = {} as Song;
     this.currentTime = 0;
@@ -270,23 +265,15 @@ export class MusicComponent implements OnDestroy, AfterViewInit {
     const seconds = format(time % 60);
     return `${minutes}:${seconds}`;
   }
-login(): void {
-    this.authService.login();
-  }
+
   ngOnInit(): void {
-    this.authService.handleAuthCallback();
-    const token = this.authService.getAccessToken();
-    if (token) {
-      this.isLoggedIn = true;
-    } else {
-      this.isLoggedIn = false;
-      this.authService.login(); // Redirect to login if no token
-    }
+    this.getFirstCurrentTrack();
+    this.getTopTracks('medium_term', 20, 'tracks');
     this.getCurrentTrack();
-    this.firstCurrentTrack();
+
     const firstSong = this.songs[this.musicIndex];
     this.loadMusic(firstSong);
-    this.getTopTracks('medium_term', 20,'tracks');
+    this.getTopTracks('medium_term', 20, 'tracks');
     this.music.addEventListener('ended', () => this.changeMusic(1));
     this.music.addEventListener('timeupdate', () => this.updateProgressBar());
     this.subscribeToTimeRangeChanges();
@@ -302,37 +289,33 @@ login(): void {
     this.subscription.unsubscribe();
   }
 
-  getTopTracks(timeRange: string, limit: number,type: string) {
-    this.spotifyService.getTopTracks(timeRange, limit, type).subscribe((data) => {
-      this.topTracks = data.items;
-    });
+  getTopTracks(timeRange: string, limit: number, type: string) {
+    this.spotifyService
+      .getTopTracks(timeRange, limit, type)
+      .subscribe((data) => {
+        this.topTracks = data.items;
+      });
   }
 
   getCurrentTrack() {
-    if (this.isLoggedIn) {
-      this.subscription.add(
-        interval(20000)
-          .pipe(switchMap(() => this.spotifyService.getCurrentlyPlayingTrack()))
-          .subscribe((data) => {
-            if (data) {
-              this.currentTrack = data.item;
-            } else {
-              this.currentTrack = null;
-            }
-          })
-      );
-    }
-  }
-  firstCurrentTrack() {
     this.subscription.add(
-      this.spotifyService.getCurrentlyPlayingTrack().subscribe((data) => {
-        if (data) {
-          this.currentTrack = data.item;
-        } else {
-          this.currentTrack = null;
-        }
-      })
+      interval(20000)
+        .pipe(switchMap(() => this.spotifyService.getCurrentlyPlayingTrack()))
+        .subscribe((data) => {
+          this.currentTrack = data ? data.item : null;
+        })
     );
+  }
+
+  // Affiche la musique actuellement jouer immédiatement
+  getFirstCurrentTrack(): void {
+    this.spotifyService.getCurrentlyPlayingTrack().subscribe((data) => {
+      if (data) {
+        this.currentTrack = data.item;
+      } else {
+        this.currentTrack = null;
+      }
+    });
   }
 
   public formTopTrack: FormGroup = this.fb.group({
@@ -363,20 +346,22 @@ login(): void {
 
   subscribeToLimitChanges(): void {
     this.limit?.valueChanges.subscribe((limit) => {
-      console.log('limit change' + limit);
+      const maxLimite = 50;
+      if (limit > maxLimite) {
+        this.limit?.setValue(maxLimite);
+      }
       this.getTopTracks(this.timeRange?.value, limit, this.type?.value);
     });
   }
 
   subscribeToTypeChanges(): void {
     this.type?.valueChanges.subscribe((type) => {
-      console.log('type change' + type);
       this.topTracks = [];
       this.getTopTracks(this.timeRange?.value, this.limit?.value, type);
     });
   }
 
   navigateToExternalLink(link: string) {
-    window.open(link, '_blank'); // Ouvre le lien dans un nouvel onglet
+    window.open(link, '_blank');
   }
 }

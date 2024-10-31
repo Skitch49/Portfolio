@@ -1,6 +1,9 @@
 User-agent: Twitterbot
 Disallow:
 
+User-agent: Googlebot
+Disallow:
+
 User-agent: *
 Disallow:
 Sitemap: https://alexis-delaunay.fr/sitemap.xml

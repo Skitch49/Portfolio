@@ -54,7 +54,10 @@
     </div>
     <div class="card">
       <div class="container-img">
-        <img class="img-jeu" src="../../../assets/images/cyberpunk-background.jpeg" />
+        <img
+          class="img-jeu"
+          src="../../../assets/images/cyberpunk-background.jpeg"
+        />
         <img
           class="logo-jeu"
           src="../../../assets/images/cyberpunk-logo.png"
@@ -62,7 +65,7 @@
         />
       </div>
       <div class="container-paragraphe">
-        <h3>Histoire</h3>
+        <h3>Narration</h3>
         <p class="para-jeu">
           Cyberpunk 2077 se distingue par son histoire immersive et complexe,
           centrée sur V, un mercenaire dans une mégalopole dystopique. Le jeu
@@ -97,6 +100,174 @@
           chaque choix compte, et où la satisfaction de voir une ville prospérer
           grâce à une gestion efficace est gratifiante.
         </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="game" [ngStyle]="{ display: this.isLarge ? 'flex' : 'none' }">
+  <h1>Pixel War</h1>
+
+  <div class="wrapper-game">
+    <div id="cursor" #cursor></div>
+    <canvas
+      #game
+      (click)="clickOnCanvas()"
+      (mousemove)="moveCanvas($event)"
+      
+    ></canvas>
+  </div>
+  <div class="colors-choice">
+    <div
+      *ngFor="let color of colorList"
+      [ngStyle]="{
+        backgroundColor: color,
+        border: color == '#FFF' ? '1px solid #CCC' : 'none'
+      }"
+      [ngClass]="{  'active': currentColorChoice == color,}"
+      (click)="changeColorChoice(color)"
+    ></div>
+  </div>
+</div>
+<div class="steam-container">
+  <div class="container-steam" *ngIf="userInfo">
+    <div class="wrapper-steam">
+      <div
+        class="steam"
+        [ngStyle]="{
+          padding: userInfo.gameid ? '1rem 0rem 0rem 1rem' : '1rem'
+        }"
+      >
+        <h1 class="steam-title" *ngIf="!userInfo.gameid">Mon profil Steam</h1>
+        <h1
+          class="steam-title"
+          *ngIf="userInfo.gameid"
+          style="border-bottom: 1px solid black"
+        >
+          Regarde a quoi je joue actuellement !
+        </h1>
+        <div class="player">
+          <a
+            href="{{ userInfo.profileurl }}"
+            target="_blank"
+            class="picture-player"
+          >
+            <img
+              src="{{ userInfo.avatarfull }}"
+              alt="{{ userInfo.personaname }}"
+            />
+          </a>
+          <div class="player-info">
+            <div class="player-info-top">
+              <h2 class="player-name">
+                <a
+                  href="{{ userInfo.profileurl }}"
+                  target="_blank"
+                  class="picture-game"
+                  >{{ userInfo.personaname }}</a
+                >
+              </h2>
+              <div
+                class="player-state"
+                [ngStyle]="{
+                  backgroundColor:
+                    userInfo.personastate === 1
+                      ? '#23e123'
+                      : userInfo.personastate === 2
+                      ? 'rgb(223 36 22);'
+                      : userInfo.personastate === 3
+                      ? 'rgb(255 149 46)'
+                      : 'rgb(68, 68, 68)'
+                }"
+              >
+                <div class="tooltip" [ngSwitch]="userInfo.personastate">
+                  <p *ngSwitchCase="1">En ligne</p>
+                  <p *ngSwitchCase="2">Occupé</p>
+                  <p *ngSwitchCase="3">Absent</p>
+                  <p *ngSwitchDefault>Hors ligne</p>
+                </div>
+              </div>
+            </div>
+            <div class="player-info-bottom" *ngIf="userInfo.gameid">
+              <h3 class="game-name">
+                {{ userInfo.gameextrainfo }}
+              </h3>
+            </div>
+          </div>
+          <a
+            class="current-game"
+            [href]="'https://store.steampowered.com/app/' + userInfo.gameid"
+            target="_blank"
+            *ngIf="userInfo.gameid"
+          >
+            <img
+              [src]="
+                'https://cdn.akamai.steamstatic.com/steam/apps/' +
+                userInfo.gameid +
+                '/header.jpg'
+              "
+              (error)="onImageError($event)"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="all-game-steam">
+  <form [formGroup]="formSteamGames">
+    <p>
+      Total de jeux Steam : <b>{{ allGames.games.length }}</b>
+    </p>
+    <label for="limit">
+      Trié par :
+      <select id="limit" formControlName="sort">
+        <option value="maxPlaytime" selected>Le + de temps de jeu</option>
+        <option value="lessPlaytime">Le - de temps de jeu</option>
+        <option value="launchRecently">lancée récemment</option>
+        <option value="launchNotRecently">Lancée il y a longtemps</option>
+      </select>
+    </label>
+    <label
+      >Limite :
+      <input
+        type="number"
+        min="1"
+        [max]="allGames.games.length"
+        formControlName="limit"
+      />
+    </label>
+  </form>
+  <div class="wrapper-game-card">
+    <div class="game-card" *ngFor="let game of displayGames">
+      <a
+        [href]="'https://store.steampowered.com/app/' + game.appid"
+        target="_blank"
+        class="game-card-link"
+      >
+        <img
+          [src]="
+            'https://cdn.akamai.steamstatic.com/steam/apps/' +
+            game.appid +
+            '/header.jpg'
+          "
+          (error)="onImageError($event)"
+        />
+      </a>
+      <div
+        class="info-game"
+        *ngIf="game.playtime_forever || game.rtime_last_played"
+      >
+        <div class="wrapper-info-game" *ngIf="game.playtime_forever">
+          <p class="info">Temps de jeu total :</p>
+          <p class="number">{{ game.playtime_forever | minuteToHour }}</p>
+        </div>
+        <div class="wrapper-info-game" *ngIf="game.rtime_last_played">
+          <p class="info">Dernier lancement :</p>
+          <p class="number">
+            <!-- {{ game.rtime_last_played * 1000 | date : "dd MMMM yyyy" }} -->
+            {{ formatDate(game.rtime_last_played) }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
