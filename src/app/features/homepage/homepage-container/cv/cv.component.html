@@ -1,5 +1,62 @@
 <div class="wrapper-cv">
-  <div @cv class="container">
+  <div class="toggle">
+    <h3 *ngIf="!toggleChecked">Lettre de motivation</h3>
+    <h3 *ngIf="toggleChecked">CV</h3>
+    <input type="checkbox" (change)="toggleCV()" />
+  </div>
+  <div @cv class="container-lettre-motiv" *ngIf="toggleChecked">
+    <h2>Lettre de motivation</h2>
+    <p>Madame, Monsieur,</p>
+    <br />
+    <p>
+      Récemment diplômé d’un MBA Développeur Full Stack à MyDigitalSchool
+      Angers, je suis actuellement à la recherche d’une opportunité en tant que
+      développeur web, où je pourrais mettre à profit mes compétences en
+      développement et gestion de projets digitaux.
+    </p>
+    <br />
+    <p>
+      Durant mes études, j'ai acquis une maîtrise solide de différentes
+      technologies telles que JavaScript, PHP, NodeJS, SQL et WordPress ainsi
+      que des compétences en modélisation UML, création de bases de données et
+      d’API REST. J’ai également créé des projets personnels pour m’entrainer
+      sur de nouvelles technologies comme le framework Angular dans lequel j’ai
+      créé un clone de netflix et mon portfolio. Actuellement, je me forme sur
+      Laravel afin d'élargir mes compétences et d'accéder à un éventail plus
+      large d'opportunités.
+    </p>
+    <br />
+    <p>
+      Dynamique, curieux et méthodique, je suis passionné par les nouvelles
+      technologies et la résolution de problèmes complexes. Mon autonomie, mon
+      sens de l’initiative et mon aptitude à travailler en équipe me permettent
+      de m’adapter rapidement à différents environnements. Je suis convaincu que
+      ces qualités, ainsi que mon expertise technique, seront des atouts
+      précieux pour accompagner votre entreprise dans la réussite de ses
+      projets.
+    </p>
+    <br />
+    <p>
+      Toujours à l'affût de nouveaux défis, je suis motivé à contribuer
+      activement à vos projets de développement tout en poursuivant mon
+      apprentissage et en approfondissant mes connaissances des technologies
+      émergentes.
+    </p>
+    <br />
+    <p>
+      Je serais ravi de pouvoir échanger avec vous sur la manière dont je
+      pourrais contribuer à vos projets et à la croissance de votre entreprise.
+      Je reste à votre disposition pour un entretien à votre convenance.
+    </p>
+    <br />
+    <p>
+      Dans l’attente de vous rencontrer, je vous prie d’agréer, Madame,
+      Monsieur, l’expression de mes salutations distinguées.
+    </p>
+    <br />
+    <p>Delaunay Alexis</p>
+  </div>
+  <div @cv class="container" *ngIf="!toggleChecked">
     <div class="left-side">
       <div class="profil-text">
         <div class="img-box">
@@ -197,10 +254,10 @@
   </div>
 </div>
 <div class="container-btn">
-  <button class="btn" (click)="downloadCV()">
+  <button class="btn" (click)="downloadCV()" *ngIf="!toggleChecked">
     <span>Télécharger CV</span>
   </button>
-  <button class="btn" (click)="downloadLettre()">
+  <button class="btn" (click)="downloadLettre()" *ngIf="toggleChecked">
     <span>Télécharger Lettre de motivation</span>
   </button>
 </div>

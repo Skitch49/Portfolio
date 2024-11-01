@@ -1,46 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
+import {
+  animate,
+  query,
+  stagger,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-cv',
   templateUrl: './cv.component.html',
   styleUrls: ['./cv.component.scss'],
-    animations: [
-    trigger("cv", [
-      transition(":enter" , [
+  animations: [
+    trigger('cv', [
+      transition(':enter', [
         style({
           opacity: 0,
-          transform: 'translateX(-10px)'
+          transform: 'translateX(-10px)',
         }),
-         animate('500ms 500ms')
+        animate('500ms 500ms'),
       ])
-    ],
-    ),
+    ]),
 
-    // trigger("container", [
-    //   transition(":enter", [
-    //     query(".sectionWave", [
-    //       style({
-    //         opacity: 0,
-    //         transform: 'translateY(200px)'
-    //       }),
-    //       animate('1000ms 2000ms')
-    //     ])
-    //   ])
-    // ])
-  ]
+
+  ],
 })
 export class CvComponent {
- 
   constructor(private router: Router) {}
+  toggleChecked = false;
 
-
+  toggleCV() {
+    this.toggleChecked = !this.toggleChecked;
+  }
   downloadCV() {
     const filePath = '../../assets/docs/cv.pdf';
     const link = document.createElement('a');
     link.href = filePath;
-    link.download = 'CV_DELAUNAY_Alexis.pdf'; 
+    link.download = 'CV_DELAUNAY_Alexis.pdf';
     link.click();
   }
 
@@ -52,6 +50,6 @@ export class CvComponent {
     link.click();
   }
   navigateToExternalLink(link: string) {
-    window.open(link, '_blank'); 
+    window.open(link, '_blank');
   }
 }
