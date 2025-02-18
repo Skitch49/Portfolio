@@ -38,6 +38,41 @@ export class ProjectsComponent implements OnInit {
   ngOnInit(): void {
     this.projects = [
       {
+        name: 'VALD FC',
+        type: 'clone Netflix - API + frontend',
+        techno: ['Angular', 'nodeJS', 'MongoDB', 'Docker'],
+        img: '../../assets/images/vald-fc.png',
+        description:
+          "Projet personnel commencer en parallèle de mes études en 2ème année de master. Clone de Netflix sur toutes les interviews et clips de VALD. J'ai d'abord du créer l'API REST avant de m'attaquer au frontend et de déployer le tout sur un VPS via Docker.",
+        siteweb: 'https://vald-fc.netlify.app/',
+        github: 'https://github.com/Skitch49/vald-fc',
+        dateRealisation: '2024',
+      },
+      {
+        name: 'Tinder dogs',
+        type: 'Site web',
+        techno: ['Angular','TypeScript','SCSS'],
+        img: '../../assets/images/tinder_dogs.png',
+        description:
+          'Mini projet pour recrée la fonctionnalité de swipe tinder grâce aux évenements mousedown, mousemove et mouseup, ainsi que leurs équivalents pour les appareils mobiles avec touch. Les animaux sont générer grâce à Dogs API. On peux retrouver les chiens likés et les filtrer par nom et les tier du plus récent au plus anciens et inversement. Le tout est stocker par le localStorage.',
+        siteweb: 'https://tinder-dogs.alexis-delaunay.fr/home',
+        github: 'https://github.com/Skitch49/tinder-dogs',
+
+        dateRealisation: 'Février 2025',
+      },
+      {
+        name: 'Lyric Card Maker',
+        type: 'Site web',
+        techno: ['Angular','TypeScript','SCSS'],
+        img: '../../assets/images/lyrics-card-genius.png',
+        description:
+          'Mini projet pour recrée des lyrics card disponible sur l\'application IOS de genius en Angular.',
+        siteweb: 'https://lyric-card-maker.alexis-delaunay.fr/',
+        github: 'https://github.com/Skitch49/lyric-card-maker',
+
+        dateRealisation: 'Janvier 2025',
+      },
+      {
         name: 'Voyages entre potes',
         type: 'Site web',
         techno: ['Javascript'],
@@ -45,6 +80,7 @@ export class ProjectsComponent implements OnInit {
         description:
           'Mini projet pour faire découvrir mes voyages fait avec mes amis.',
         siteweb: 'https://voyages-entre-potes.alexis-delaunay.fr/',
+        github: 'https://github.com/Skitch49/lyric-card-maker',
         dateRealisation: 'Octobre 2024',
       },
       {
@@ -69,17 +105,7 @@ export class ProjectsComponent implements OnInit {
         github: 'https://github.com/Skitch49/image-slider-comparison',
         dateRealisation: 'Septembre 2024',
       },
-      {
-        name: 'VALD FC',
-        type: 'clone Netflix - API + frontend',
-        techno: ['Angular', 'nodeJS', 'MongoDB', 'Docker'],
-        img: '../../assets/images/vald-fc.png',
-        description:
-          "Projet personnel fait en parallèle de mes études en 2ème année de master. Clone de Netflix sur toutes les interviews et clips de VALD. J'ai d'abord du créer l'API REST avat de m'attaquer au frontend et de déployer le tout sur un VPS via Docker.",
-        siteweb: 'http://alexis.delaunay.angers.mds-project.fr/',
-        github: 'https://github.com/Skitch49/vald-fc',
-        dateRealisation: '2024',
-      },
+      
       {
         name: 'Lovely Nails by Prisci',
         type: 'Site Vitrine',
@@ -109,7 +135,6 @@ export class ProjectsComponent implements OnInit {
         img: '../../assets/images/sup-ouest-avenir.png',
         description:
           "Pour ce site web je n'ai pas seulement créer un thème WordPress mais j'ai également créer une extension WordPress pour pouvoir créer des blocs gutemberg personnalisées pour que le client puisse maintenir à jour son site rapidement et facilement via l'éditeur WordPress avec des blocs intégrés nativement et les nouveaux que j'ai développé.",
-        siteweb: 'https://supouestavenir.org',
         dateRealisation: 'Avril 2023',
       },
       {
@@ -120,7 +145,6 @@ export class ProjectsComponent implements OnInit {
         description:
           "POC qui permet d'enregistrer des données de tests de logiciels dans la cadre d'une étude Écoresponsable.",
         siteweb: 'https://logiciel-durable.esaip.org',
-        github: 'https://github.com/Skitch49/POOC-Logiciel-Durable-ESAIP',
         dateRealisation: 'Mai 2023 - Juillet 2023',
       },
       {

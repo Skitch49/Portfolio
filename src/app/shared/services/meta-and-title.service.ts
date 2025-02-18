@@ -1,11 +1,16 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { Router, Event as RouterEvent, NavigationEnd, NavigationStart } from '@angular/router';
+import {
+  Router,
+  Event as RouterEvent,
+  NavigationEnd,
+  NavigationStart,
+} from '@angular/router';
 import { Subscription } from 'rxjs';
 import metaData from '../helpers/meta-data';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MetaAndTitleService implements OnDestroy {
   private subscription = new Subscription();
@@ -16,7 +21,7 @@ export class MetaAndTitleService implements OnDestroy {
     private title: Title
   ) {
     this.subscription.add(
-    this.router.events.subscribe((event: RouterEvent) => {
+      this.router.events.subscribe((event: RouterEvent) => {
         if (event instanceof NavigationStart) {
           const url = event.url;
           this.updateTitle(url);
@@ -44,14 +49,13 @@ export class MetaAndTitleService implements OnDestroy {
     const oldTagOgUrl = this.meta.getTag('property="og:url"');
     const newTagOgUrl = {
       property: 'og:url',
-      content: 'https://alexis-delaunay.fr'+url,
+      content: 'https://alexis-delaunay.fr' + url,
     };
     const oldTagOgDescription = this.meta.getTag('property="og:description"');
     const newTagOgDescription = {
       property: 'og:description',
       content: metaData[url].metas['og:description'],
     };
-
 
     oldTagDescription
       ? this.meta.updateTag(newTagDescription)
@@ -62,7 +66,7 @@ export class MetaAndTitleService implements OnDestroy {
     oldTagOgUrl
       ? this.meta.updateTag(newTagOgUrl)
       : this.meta.addTag(newTagOgUrl);
-      oldTagOgDescription
+    oldTagOgDescription
       ? this.meta.updateTag(newTagOgDescription)
       : this.meta.addTag(newTagOgDescription);
   }
