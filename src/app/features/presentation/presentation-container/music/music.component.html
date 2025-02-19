@@ -37,6 +37,16 @@
       </div>
     </div>
     <div class="player-controls">
+      <div class="wrapper-volume">
+        <img [src]="'../../../../../assets/icons/'+imgVolume+'.png'" alt="icon Volume" (click)="muteSong()">
+        <input
+          type="range"
+         
+          [value]="volume"
+          (input)="changeVolume($event)"
+      />
+      </div>
+     
       <i
         class="fa-solid fa-backward"
         id="prev"

@@ -25,6 +25,9 @@ export class MusicComponent implements OnDestroy, AfterViewInit {
   music: HTMLAudioElement;
   songs: Song[];
   musicIndex: number;
+  volume: number = 50;
+  isMuted: boolean = false;
+  imgVolume = 'volume-medium';
   //Spotify
   topTracks: any[] = [];
   currentTrack: any;
@@ -40,7 +43,7 @@ export class MusicComponent implements OnDestroy, AfterViewInit {
     this.progressPercent = 0;
     this.isPlaying = false;
     this.music = new Audio();
-
+    this.music.volume = this.volume / 100;
     this.songs = [
       {
         path: 'assets/audio/life.mp3',
@@ -251,8 +254,11 @@ export class MusicComponent implements OnDestroy, AfterViewInit {
   }
 
   setProgressBar(e: MouseEvent): void {
-    const width = (e.target as HTMLDivElement).offsetWidth;
+    const width = (e.currentTarget as HTMLDivElement).offsetWidth;
+
     const clickX = e.offsetX;
+    console.log('width '+width)
+    console.log('clickX '+clickX)
     const duration = this.music.duration;
     const newTime = (clickX / width) * duration;
     this.music.currentTime = newTime;
@@ -264,6 +270,34 @@ export class MusicComponent implements OnDestroy, AfterViewInit {
     const minutes = format(time / 60);
     const seconds = format(time % 60);
     return `${minutes}:${seconds}`;
+  }
+
+  changeVolume(e: Event) {
+    const inputElement = e.target as HTMLInputElement;
+    this.volume = Number(inputElement.value);
+    this.changeImgVolume();
+    this.music.volume = this.volume / 100;
+  }
+
+  changeImgVolume() {
+    if (this.volume >= 70) {
+      this.imgVolume = 'volume-full';
+    } else if (this.volume >= 40) {
+      this.imgVolume = 'volume-medium';
+    } else if (this.volume > 0) {
+      this.imgVolume = 'volume-less';
+    } else {
+      this.imgVolume = 'volume-no-sound';
+    }
+  }
+  muteSong() {
+    this.isMuted = !this.isMuted;
+    if (this.isMuted) {
+      this.imgVolume = 'volume-muted';
+    } else {
+      this.changeImgVolume();
+    }
+    this.music.muted = this.isMuted;
   }
 
   ngOnInit(): void {

@@ -108,6 +108,19 @@ h3 {
 
 .player-controls {
   margin-bottom: 25px;
+  .wrapper-volume {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    img {
+      padding-right: 4px;
+      user-select: none;
+      cursor: pointer;
+    }
+    input {
+      cursor: pointer;
+    }
+  }
 }
 
 .fa-solid {
