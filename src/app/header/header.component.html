@@ -1,5 +1,7 @@
 
 <nav>
+  <div class="container-dark-mode"><input id="dark-mode" class="dark-mode" type="checkbox" [(ngModel)]="toggleDarkMode" (click)='toggleDarkLightMode()'>
+  </div>
   <div id='toggle'>
     <div></div>
   </div>
@@ -11,7 +13,7 @@
       class="linkMenu"
     >
       <span>
-        <div>Home</div>
+        <div>Accueil</div>
       </span>
     </li>
     <li routerLink="presentation" routerLinkActive="active" class="linkMenu">
@@ -29,5 +31,6 @@
         <div>Contact</div>
       </span>
     </li>
+    <div class="smart-bar" #smartBar></div>
   </ul>
 </nav>

@@ -5,6 +5,7 @@ import { HomepageComponent } from './homepage-container/homepage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HOMEPAGE_ROUTES } from './homepage.routes';
+import { AvatarComponent } from './homepage-container/avatar/avatar.component';
 
 
 
@@ -12,6 +13,7 @@ import { HOMEPAGE_ROUTES } from './homepage.routes';
   declarations: [
     CvComponent,
     HomepageComponent,
+    AvatarComponent,
   ],
   imports: [
     CommonModule,

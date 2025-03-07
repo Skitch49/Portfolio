@@ -3,7 +3,7 @@
   width: 100%;
 }
 .container-voyage {
-  background-color: var(--gray);
+  background-color: #090a0f;
   color: white;
   display: flex;
   flex-direction: column;
@@ -46,4 +46,9 @@
     margin-bottom: 8px;
     transition: transform 0.2s ease-in-out;
   }
+}
+::ng-deep .gm-style-iw-d {
+  overflow: hidden !important;
+  padding-bottom: 4px;
+  padding-right: 4px;
 }

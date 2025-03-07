@@ -1,70 +1,17 @@
-<div @container class="container">
-  <section class="wrapper">
-    <div class="astronaute-container">
-      <img
-        id="astronaute"
-        class="astronaute"
-        src="../../../../assets/images/Kerbal.png"
-      />
-    </div>
-    <div *ngIf="planet" class="planet">
-      <img
-        src="../../../../assets/images/soleil.png"
-        class="soleil"
-        alt="soleil"
-      />
-      <img
-        [src]="imgSrc"
-        class="lune"
-        alt="lune"
-        (mouseover)="imgSrc = '../../../../assets/images/lune1.png'"
-        (mouseout)="imgSrc = '../../../../assets/images/lune.png'"
-      />
-    </div>
+<div class="container">
+  <div class="header-content">
+  </div>
+  <section>
+    <app-avatar></app-avatar>
+    <div class="content">
+      <h1><span class="gradient-text">Alexis Delaunay</span></h1>
 
-    <div id="stars"></div>
-    <div id="stars2"></div>
-    <div id="title">
-      <h1>Alexis DELAUNAY</h1>
-      <h2>DÉVELOPPEUR WEB</h2>
-      <p routerLink="cv" routerLinkActive="active" class="btn-cv">
-        <span></span><span></span><span></span><span></span>Voir mon CV
-      </p>
-    </div>
-  </section>
-
-  <section class="sectionWave">
-    <div class="waves">
-      <div
-        class="wave"
-        id="wave1"
-        [ngStyle]="{
-          backgroundImage: 'url(../../../../assets/images/wave.png)'
-        }"
-      ></div>
-      <div
-        class="wave"
-        id="wave2"
-        [ngStyle]="{
-          backgroundImage: 'url(../../../../assets/images/wave.png)'
-        }"
-      ></div>
-      <div
-        class="wave"
-        id="wave3"
-        [ngStyle]="{
-          backgroundImage: 'url(../../../../assets/images/wave.png)'
-        }"
-      ></div>
-      <div
-        class="wave"
-        id="wave4"
-        [ngStyle]="{
-          backgroundImage: 'url(../../../../assets/images/wave.png)'
-        }"
-      ></div>
-      <img src="../../../../assets/images/island.png" class="island" />
-      <img src="../../../../assets/images/beach1.jpg" class="beach" />
+      <h2>
+        <span class="first-word">Développeur</span><span class="second-word"> Full Stack</span>
+      </h2>
+      <button routerLink="cv" routerLinkActive="active" class="btn-cv">
+        <img src="../../../../assets/icons/cv.png" alt="CV"> Voir mon CV
+      </button>
       <div class="wrapper-reseaux">
         <div (click)="navigateToExternalLink('https://github.com/Skitch49')">
           <img
@@ -85,24 +32,7 @@
             (mouseenter)="addRotationAnimation($event)"
           />
         </div>
-        <div (click)="navigateToExternalLink('https://twitter.com/Skitch49')">
-          <img
-            src="../../../../assets/images/twitter.png"
-            (mouseenter)="addRotationAnimation($event)"
-          />
-        </div>
-        <div
-          (click)="
-            navigateToExternalLink(
-              'https://www.instagram.com/alexis_delaunay_49/'
-            )
-          "
-        >
-          <img
-            src="../../../../assets/images/insta.png"
-            (mouseenter)="addRotationAnimation($event)"
-          />
-        </div>
+        
       </div>
     </div>
   </section>

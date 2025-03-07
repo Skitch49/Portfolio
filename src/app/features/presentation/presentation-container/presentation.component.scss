@@ -1,116 +1,132 @@
-.wrapper{
+.wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #fff;
+  background: linear-gradient(
+    0deg,
+    var(--background-gradient-1),
+    var(--background-gradient-2)
+  );
+  color: var(--text-color);
 }
 
 .container {
-  background-color: white;
-  padding-top: 6px;
+  display: flex;
+  justify-content: center;
+  padding: 0px 10px;
+  overflow: hidden;
 }
 .container-presentation {
-  margin-left: 10%;
-  margin-right: 10%;
   display: flex;
-
   flex-direction: row;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 1220px;
+  justify-content: space-between;
   .presentation {
-    width: 50%;
     display: flex;
     flex-direction: column;
+    transform: translateX(-200%);
+    will-change: transform;
+    animation: toRight 0.6s 0.2s forwards;
     h1 {
-      text-align: center;
+      font-size: clamp(22px, 5vw + 1rem, 45px);
+      display: flex;
+      flex-direction: column;
+      margin: 1rem 0;
+      span {
+        color: var(--text-color);
+        &:nth-child(1) {
+          color: var(--text-color-green);
+        }
+        &:nth-child(2) {
+          transform: translateY(-6px);
+        }
+      }
     }
-    p {
-      font-size: 20px;
-      margin-bottom: 20px;
+    .wrapper-presentation {
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 1rem;
+      max-width: 580px;
+      .icon {
+        height: 20px;
+        border-radius: 99px;
+        padding: 13px;
+        background-color: rgb(0 197 102 / 10%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+      svg {
+        height: 15px;
+        width: 15px;
+        color: var(--text-color-green);
+        position: absolute;
+        &.left {
+          left: 5px;
+        }
+      }
+      h2 {
+        font-size: clamp(16px, 5vw + 1rem, 20px);
+        font-weight: 500;
+      }
     }
   }
   .competences {
-    width: 25%;
-    border: 1px solid #c4c4c4;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    max-width: 520px;
+    width: 100%;
+    will-change: transform;
+    transform: translateX(200%);
 
-    background: white;
-    box-shadow: 0 4px 8px 0 rgba(44, 27, 27, 0.2),
-      0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    h1 {
-      color: #8f8f8f;
-      background: #f8f8f8;
-      font-weight: 300;
-      padding: 15px 25px;
-      text-align: center;
-      margin: 0;
-    }
-    h2 {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid rgba(0, 0, 0, 0.25);
-      border-radius: 5px;
-      color: #1d2b3a;
-      font-size: 1em;
-      transition: 0.5s;
-      margin-bottom: 5px;
+    animation: toLeft 0.6s 0.8s forwards;
+    .container-competences {
+      background-color: #f1f1f1;
+      color: var(--text-color-secondary);
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px 0 rgba(44, 27, 27, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      h2 {
+        color: var(--color-text);
+        font-size: clamp(18px, 6vw + 1rem, 22px);
+        padding-bottom: 1rem;
+      }
+      .wrapper-competences {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 10px 0;
+        .item {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+
+          img {
+            width: 30px;
+            user-select: none;
+          }
+          p {
+            font-weight: 600;
+            font-size: 18px;
+          }
+        }
+      }
     }
   }
 }
 
-.ordi {
-  background-image: url(../../../../assets/images/ordi-ouvert.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1 1;
-}
-.texte {
-  width: 70%;
-  margin-top: 5%;
-}
-
-h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-h2 {
-  font-size: 1.6rem;
-
-  color: var(--gray);
-}
-
-.container-frameworks,
-.langage-info,
-.autres {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.container-frameworks img,
-.langage-info img,
-.autres img {
-  width: 80px;
-  margin: 0 5px;
-  margin-bottom: 10px;
-  user-select: none;
-}
-
 .container-hobbies {
-  background-color: var(--gray);
+  background-color: #090a0f;
+  clip-path: polygon(100% 11%, 100% 101%, 0% 101%, 0% 0%);
 }
-.container-hobbies::before {
-  content: "";
-  clip-path: polygon(100% -10%, 120% 85%, -10% 0%);
-  background: white;
-  height: 60px;
-  min-width: 1700px;
-  width: 100%;
-  position: absolute;
-  /* bottom: -1px; */
-  z-index: 1;
-}
+
 .wrapper-hobbies {
   display: flex;
   justify-content: center;
@@ -136,6 +152,9 @@ h2 {
   position: relative;
   display: flex;
   flex-direction: column;
+  &.active-child{
+    color: #1aff91;
+  }
   &:hover .cover {
     transform: scale(1.05);
   }
@@ -160,13 +179,12 @@ h2 {
     content: "";
     display: block;
     opacity: 0.6;
-    background: var(--gray);
+    background: #090a0f;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    
   }
 }
 
@@ -183,135 +201,70 @@ h2 {
   transform-origin: bottom right;
   padding: initial;
   z-index: 2;
-
 }
 #title-hobby {
-  color: #fff;
+  color: #f1f1f1;
   font-size: 32px;
-  margin-left: 14%;
+  margin-left: 11vw;
   padding-top: 13px;
 }
-@media (min-width: 975px) {
-  .ordi {
-    background-image: url(../../../../assets/images/ordi-ouvert.png);
-  }
-}
 
-@media (max-width: 1850px) {
-  .presentation {
-    width: 55% !important;
-  }
-  .competences {
-    width: 31% !important;
-  }
-}
-@media (max-width: 1700px) {
-  .container-hobbies::before {
-    min-width: auto !important;
-  }
-}
-@media (max-width: 1575px) {
+@media (max-width: 1120px) {
   .container-presentation {
-    justify-content: space-between;
-  }
-  .presentation {
-    width: 61% !important;
-  }
-}
-@media (max-width: 1490px) {
-  .container-frameworks img,
-  .langage-info img,
-  .autres img {
-    width: 65px !important;
-  }
-}
-@media (max-width: 1350px) {
-  .container-presentation {
-    margin: 0 5% !important;
-  }
-  .presentation {
-    width: 57% !important;
+    justify-content: center;
+    width: 100% !important;
+    padding: 0 6vw !important;
+    .wrapper-presentation {
+      max-width: 100% !important;
+    }
+    .competences {
+      max-width: 100% !important;
+      .container-competences {
+        padding: 1.5rem !important;
+
+        .wrapper-competences {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 1rem 0 !important;
+        }
+      }
+    }
   }
 }
-@media (max-width: 1280px) {
-  .presentation {
-    width: 64% !important;
+@media (max-width: 1550px) {
+  .wrapper-hobbies {
+    margin: 0 7vw;
   }
 }
 @media (max-width: 1140px) {
-  .container-presentation {
-    margin: 0 !important;
-  }
-  #title-hobby {
-    margin-left: 7%;
-  }
   .wrapper-hobbies {
     margin: 0 5%;
   }
 }
-@media (max-width: 1025px) {
-  .container-presentation {
-    margin: 0 !important;
-  }
-  .texte p {
-    font-size: 16px !important;
-    margin-bottom: 15px !important;
-  }
-  h1 {
-    font-size: 1.5rem;
-  }
-}
+// @media (max-width: 1025px) {
+//   .container-presentation {
+//     margin: 0 !important;
+//   }
+//   .texte p {
+//     font-size: 16px !important;
+//     margin-bottom: 15px !important;
+//   }
+//   h1 {
+//     font-size: 1.5rem;
+//   }
+// }
 @media (max-width: 974px) {
-  // .container-presentation {
-  //   flex-direction: column;
-  //   align-items: center;
-  //   margin: 10px 10% !important;
-  // }
-  // .presentation {
-  //   width: 85% !important;
-  // }
-  .texte {
-    width: 58%;
-    margin-left: 67px;
-  }
-  .ordi {
-    align-items: normal;
-    background-size: contain;
-    background-image: url(../../../../assets/images/feuille.png) !important;
-  }
-
-  #title-hobby {
-    margin-left: 3%;
-  }
   .wrapper-hobbies {
     margin: 0;
   }
 }
-@media (max-width: 935px) {
-  .texte {
-    width: 61%;
-  }
-  .competences h1 {
-    padding: 10px !important;
-  }
-}
+
 @media (max-width: 850px) {
-  .wrapper{
-    height: auto;
-  }
-  .competences {
-    width: 40% !important;
-  }
-  .presentation {
-    width: 60% !important;
-  }
-  .texte {
-    width: 63%;
-    margin-left: 49px;
-  }
   .wrapper-hobbies {
     margin: 0 15%;
     flex-direction: column;
+  }
+  .container-hobbies {
+    clip-path: polygon(100% 5%, 100% 101%, 0% 101%, 0% 0%);
   }
   .container-hobby {
     width: 100% !important;
@@ -319,75 +272,78 @@ h2 {
     background-position: center;
     margin: 20px;
   }
-  .cover {
-    background-position: 100% 0;
-  }
 }
 @media (max-width: 750px) {
-  .texte {
-    width: 80%;
-    margin-left: 54px;
+  .wrapper-competences {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
 @media (max-width: 650px) {
-  .container-presentation {
-    flex-direction: column;
-    justify-content: center;
-    .competences {
-      width: 100% !important;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      h1 {
-        width: 100%;
-      }
-      h2 {
-        text-align: center;
-      }
-    }
-
-  }
-  .presentation {
-    width: 100% !important;
-  }
-  .ordi {
-    min-height: 450px;
-    background-position: center;
-  }
-  .texte {
-    width: 50%;
-    margin: 24px 27%;
-  }
   #title-hobby {
     font-size: 28px;
   }
-
 }
 @media (max-width: 550px) {
-  .texte {
-    width: 58%;
-    margin: 24px 24%;
+  .container-hobbies {
+    clip-path: polygon(100% 3%, 100% 101%, 0% 101%, 0% 0%) !important;
   }
+
   .wrapper-hobbies {
     margin: 0 10px;
   }
 }
-
-@media (max-width: 400px) {
-  .texte {
-    width: 80%;
-    margin: 0;
-    text-align: center;
+@media (max-width: 500px) {
+  .wrapper-competences {
+    display: flex !important;
+    flex-direction: column;
   }
-  .ordi {
-    background-image: none !important;
-    display: flex;
-    align-items: center;
-    min-height: 255px;
+}
+@media (max-width: 400px) {
+  .container-presentation {
+    padding: 0 2vw !important;
   }
 }
 @media (max-width: 350px) {
   .container-hobby {
     font-size: 24px;
+  }
+}
+
+// animation
+@keyframes toRight {
+  0% {
+    transform: translateX(-200%);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateX(20%);
+  }
+  75% {
+    transform: translateX(-5%);
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toLeft {
+  0% {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateX(-20%);
+  }
+  75% {
+    transform: translateX(5%);
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
 }

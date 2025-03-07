@@ -4,7 +4,7 @@ import emailjs from '@emailjs/browser';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent {
   public envoie = false;
@@ -22,29 +22,32 @@ export class ContactComponent {
   constructor(private fb: FormBuilder) {}
 
   public form: FormGroup = this.fb.group({
-    email: ['', Validators.compose([Validators.required,Validators.email])],
-    nom: ['',Validators.compose([Validators.required,Validators.minLength(2)])],
-    message: ['',Validators.required],
+    email: ['', Validators.compose([Validators.required, Validators.email])],
+    nom: [
+      '',
+      Validators.compose([Validators.required, Validators.minLength(4)]),
+    ],
+    message: [
+      '',
+      Validators.compose([Validators.required, Validators.minLength(6)]),
+    ],
   });
 
   async submit() {
-
-
-    if(this.form.valid){
+    if (this.form.valid) {
       emailjs.init('fgE238biR3koMQoGh');
-      let response = await emailjs.send("service_zw2s6sp","template_w1hgv7m",{
-      from_name: this.form.value.nom,
-      message: this.form.value.message,
-      reply_to: this.form.value.email,
-      from_email: this.form.value.email,
+      let response = await emailjs.send('service_zw2s6sp', 'template_w1hgv7m', {
+        from_name: this.form.value.nom,
+        message: this.form.value.message,
+        reply_to: this.form.value.email,
+        from_email: this.form.value.email,
       });
       this.form.reset();
       this.envoie = true;
-    }
-    else{
+    } else {
+      this.form.markAllAsTouched();
       this.envoie = false;
     }
-
-
+    console.log(false);
   }
 }

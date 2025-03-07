@@ -1,24 +1,28 @@
 <div class="wrapper-form">
-<form class="box" (ngSubmit)="submit()" [formGroup]="form">
-    <h1 class="box-title">Me Contacter</h1>
+  <h1>Contactez <span>moi</span></h1>
+<form  (ngSubmit)="submit()" [formGroup]="form">
+
     <div class="container-form">
       <div class="inputBox">
-        <input type="text" formControlName="nom">
-        <span>Nom | Prénom</span>
-        <p *ngIf="nom.errors && nom.touched" class="errors">Nom & prénom non renseigné !</p>
+        <input type="text" formControlName="nom" [ngClass]="{'errors-span': nom.errors && !envoie && nom.touched}">
+        <span  >Nom | Prénom</span>
+        <p *ngIf="nom.errors?.['required'] && !envoie && nom.touched" class="errors">Nom & prénom non renseigné !</p> <p *ngIf="nom.errors?.['minlength'] && !envoie && nom.touched" class="errors">Nom & prénom trop court !</p>
       </div>
       <div class="inputBox">
-        <input type="text" formControlName="email">
-        <span>Email</span>
-        <p *ngIf="email.errors && email.touched" class="errors">L'email n'est pas valide !</p>
+        <input type="text" formControlName="email" [ngClass]="{'errors-span': email.errors && !envoie  && email.touched}">
+        <span >Email</span>
+        <p *ngIf="email.errors && !envoie  && email.touched" class="errors">L'email n'est pas valide !</p>
 
       </div>
       <div class="inputBox">
-        <textarea type="text" formControlName="message"></textarea>
-        <span>Message</span>
-        <p *ngIf="message.errors && message.touched" class="errors">Aucun message !</p>
+        <textarea type="text" formControlName="message" [ngClass]="{'errors-span': message.errors && !envoie && message.touched}" ></textarea>
+        <span >Message</span>
+        <p *ngIf="message.errors?.['required'] && !envoie  && message.touched" class="errors">Aucun message !</p>
+        <p *ngIf="message.errors?.['minlength'] && !envoie  && message.touched" class="errors">message trop court !</p>
       </div>
-      <input type="submit" id="btn-connexion" value="Envoyer" name="submit" class="box-button">
+      <div class="inputBox">
+        <input type="submit" id="btn-connexion" value="Envoyer" name="submit" class="box-button">
+      </div>
     </div>
   </form>
   <p *ngIf="envoie">Merci pour l'intéret que vous me porter !</p>

@@ -1,11 +1,29 @@
-.wrapper-form{
+.wrapper-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  .box.ng-valid{
-    .box-button{
-      background-color: #00dfc4;
-      cursor: pointer!important;
+  background: linear-gradient(
+    0deg,
+    var(--background-gradient-1),
+    var(--background-gradient-2)
+  );
+  min-height: calc(100vh - 52px);
+  h1 {
+    color: var(--text-color);
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    font-size: clamp(20px,6vw + 1rem,40px);
+    span {
+      color: #00c566ef;
+    }
+  }
+  p{
+    color: var(--text-color);
+  }
+  form.ng-valid {
+    .box-button {
+      background-color: #00df5d;
+      cursor: pointer !important;
       &:hover {
         transform: scale(1.02);
         transition: 0.2s;
@@ -14,132 +32,118 @@
   }
 }
 .container-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.inputBox {
+  width: 100%;
+  position: relative;
+  textarea {
+    resize: vertical;
+    min-height: 40px;
+    height: 195px;
   }
-  
-  .inputBox {
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    outline: none;
+    color: #1d2b3a;
+    font-size: 1em;
+    transition: 0.5s;
+    margin-bottom: 2.5rem;
     position: relative;
-    width: 70%;
-    textarea{
-      resize: none;
-      height: 195px;
+
+    &.ng-touched.ng-dirty ~ span,
+    &:focus ~ span {
+      background: #38e993ef;
+      color: #1e361f;
+      border-radius: 2px;
+      transform: translateX(10px) translateY(-7px);
+      font-size: 0.65em;
+      padding: 0 10px;
+      border-left: 1px solid #38e993ef;
+      border-right: 1px solid #38e993ef;
+      letter-spacing: 0.2em;
     }
-    input,
-    textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid rgba(0, 0, 0, 0.25);
-      border-radius: 5px;
-      outline: none;
-      color: #1d2b3a;
-      font-size: 1em;
-      transition: 0.5s;
-      margin-bottom: 25px;
-  
-      &.ng-touched.ng-dirty ~ span,
-      &:focus ~ span {
-        background: #00dfc4;
+
+    &:focus {
+      border: 1px solid #38e993ef;
+    }
+    &.ng-touched.ng-valid {
+      border: 1px solid #38e993ef;
+    }
+    &.errors-span {
+      border: 1px solid #fa4e4e !important;
+      & ~ span {
         color: #1d2b3a;
         border-radius: 2px;
         transform: translateX(10px) translateY(-7px);
         font-size: 0.65em;
         padding: 0 10px;
-        border-left: 1px solid #00dfc4;
-        border-right: 1px solid #00dfc4;
         letter-spacing: 0.2em;
-      }
-  
-
-      &:focus {
-        border: 1px solid #3b89b9;
-
-      }
-      &.ng-touched.ng-valid{
-        border: 1px solid #00dfc4;
-      }
-      &.ng-touched.ng-invalid{
-        border: 1px solid #fa4e4e;
-        &.ng-dirty ~ span{
-          background-color: #fa4e4e!important;
-          border-color: #fa4e4e!important;
-          }
-      }
-      & ~.errors{
-        position: relative;
-        top: -15px;
-        text-shadow: 0 0 black;
+        background-color: #fa4e4e !important;
+        border-color: #fa4e4e !important;
       }
     }
-  
-    span {
+    & ~ .errors {
       position: absolute;
-      left: 0;
-      padding: 10px;
-      pointer-events: none;
-      font-size: 1em;
-      color: rgba(0, 0, 0, 0.25);
-      text-transform: uppercase;
-      transition: 0.5s;
+      bottom: 15px;
+      color: var(--text-color);
+      text-shadow: 0 0 #242424;
     }
   }
-  
-  #btn-connexion {
-    transition: 0.2s;
-    cursor: not-allowed;
-    
+
+  span {
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: rgba(0, 0, 0, 0.25);
+    text-transform: uppercase;
+    transition: 0.5s;
   }
+}
+
+#btn-connexion {
+  transition: 0.2s;
+  cursor: not-allowed;
+  color: #f1f1f1;
+}
+
+form {
+  width: 600px;
+
+  .box-button {
+    border-radius: 5px;
+    background: #00c566ef;
+    text-align: center;
+    cursor: pointer;
+    font-size: 19px;
+    width: 100%;
+    height: 51px;
+    padding: 0;
+    color: #fff;
   
-  .box {
-    border: 1px solid #c4c4c4;
-    background: white;
-    margin: 30px;
-    width: 450px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-bottom-left-radius:5px;
-    border-bottom-right-radius:5px;
-  
-    h1.box-title {
-      color: #8f8f8f;
-      background: #f8f8f8;
-      font-weight: 300;
-      padding: 15px 25px;
-      line-height: 30px;
-      font-size: 25px;
-      text-align: center;
-      margin-bottom: 20px;
-      border-bottom: 1px solid #c4c4c4;
-    }
-  
-    &-button {
-      border-radius: 5px;
-      background: #3b89b9;
-      text-align: center;
-      cursor: pointer;
-      font-size: 19px;
-      width: 80%;
-      height: 51px;
-      padding: 0;
-      color: #fff;
-      border: 0;
-      outline: 0;
-      margin-bottom: 10px;
+    margin-bottom: 2.5rem;
+    &:focus{
+      border: 2px solid var(--text-color);
     }
   }
-  @media (max-width:500px){
-    .box{
-      margin: 30px 2%;
-      width: 95%;
-    }
-    .inputBox{
-      width: 90%;
-    }
-    .box-button{
-      width: 92%;
-    }
-    textarea{
-      height: 35vh;
-    }
+}
+
+@media (max-width: 650px) {
+  form{
+    width: 90vw;
+
   }
+  h1{
+    margin-top: 3rem!important;
+  }
+}

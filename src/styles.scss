@@ -9,25 +9,33 @@
 html,
 body {
   height: 100%;
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 }
 .body-open-menu{
   overflow: hidden;
 }
 :root {
-  --font-family: "Roboto", sans-serif;
+  --font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   --primary: #546de5;
   --secondary: #778beb;
   --accent: #546de5;
   --lightgray: #ddd;
-  --gray: #090a0f;
+  --black: #090a0f;
   --text-regular: #444;
+  --background-gradient-1: #080808;
+  --background-gradient-2: #1f1e28;
+  --text-color: #f1f1f1;
+  --text-color-secondary: #111111;
+  --text-color-green: #00c566ef;
+  --text-color-green-flash: #1aff91;
+  --scroll-bar: #00c566ef;
+  
 }
 
 .active {
-  color: #80cfe9 !important;
+  color: var(--text-color-green-flash) !important;
 }
 
-html, body { height: 100%; }
 
 // Scrollbar
 ::-webkit-scrollbar {

@@ -242,9 +242,10 @@ export class VoyageComponent implements OnInit {
           this.infoWindow.close();
           this.currentMarker = null;
         } else {
-          this.infoWindow.setContent(point.nom);
           this.infoWindow.setContent(
-            '<div style="max-width: 200px;">' + point.nom + '</div>'
+            '<div class="info-window">' +
+            point.nom +
+          '</div>'
           );
 
           this.infoWindow.open(map, marker);
