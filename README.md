@@ -1,27 +1,58 @@
-# Portfolio2023
+# Portfolio - Alexis Delaunay
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
+Bienvenue sur le repository de mon portfolio ! 🚀
 
-## Development server
+## 🎨 Technologies utilisées
+Ce portfolio est construit avec les technologies suivantes :
+- **Angular** - Framework front-end
+- **SCSS** - Préprocesseur CSS
+- **Three.js** - Bibliothèque JavaScript pour le rendu 3D
+- **API REST** - Pour récupérer les données Spotify
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🌍 Aperçu
+Vous pouvez voir le portfolio en ligne ici : [alexis-delaunay.fr](https://alexis-delaunay.fr/)
 
-## Code scaffolding
+## 🚀 Installation et exécution
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Prérequis
+Assurez-vous d'avoir installé les outils suivants sur votre machine :
+- [Node.js](https://nodejs.org/fr)
+- [Angular CLI](https://v17.angular.io/cli)
 
-## Build
+### Étapes d'installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Cloner le repository
+```
+git clone https://github.com/Skitch49/portfolio.git
+cd portfolio
+```
 
-## Running unit tests
+2. Installer les dépendances
+`npm install`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Lancer l'application en mode développement
+`ng serve`
+L'application sera accessible sur http://localhost:4200/
 
-## Running end-to-end tests
+## 🎵 Intégration de vos données Spotify
+J'ai créé une API REST en Node.js et Express pour récupérer les données Spotify et les afficher dans la page Présentation > Music.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+📌 Lien vers le repository de l'API REST : [API Spotify Portfolio](https://github.com/Skitch49/API-spotify-portfolio)
 
-## Further help
+### 🔧 Générer un fichier d'environnement
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Si vous n'avez pas encore de fichier `environment.ts`, vous pouvez le générer manuellement en exécutant :
+`ng generate environment`
+
+Puis, dans `src/environments/environment.ts`, ajoutez :
+
+```
+export const environment = { 
+  clientId: 'VOTRE_CLIENT_ID',
+  APIBackendUrl: 'VOTRE_URL_BACKEND',
+};
+```
+
+## 📬 Contact
+
+Si vous avez des questions ou souhaitez discuter du projet, n'hésitez pas à me contacter via mon site web : [alexis-delaunay.fr 🎯](https://alexis-delaunay.fr/)

@@ -11,7 +11,7 @@ export class FilterPipe implements PipeTransform {
       p.name.toLowerCase().includes(search.toLowerCase()) ||
       p.type.toLowerCase().includes(search.toLowerCase()) ||
       p.description.toLowerCase().includes(search.toLowerCase()) ||
-      p.techno.some(tech => tech.toLowerCase().includes(search.toLowerCase()))
+      p.techno.some(tech => tech.name.toLowerCase().includes(search.toLowerCase()))
     );
   }
 }

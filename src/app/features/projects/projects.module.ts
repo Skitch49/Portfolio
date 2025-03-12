@@ -9,6 +9,7 @@ import { FilterPipe } from 'src/app/shared/pipes/filter.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PROJECTS_ROUTES } from './projects.routes';
 import { FormModule } from 'src/app/shared/modules/form.module';
+import { MaxLengthPipe } from 'src/app/shared/pipes/max-length.pipe';
 
 
 
@@ -17,6 +18,7 @@ import { FormModule } from 'src/app/shared/modules/form.module';
     ProjectsComponent,
     DialogComponent,
     FilterPipe,
+    MaxLengthPipe
   ],
   imports: [
     CommonModule,

@@ -71,6 +71,8 @@ export class HeaderComponent implements OnInit,AfterViewInit {
       document.documentElement.style.setProperty('--background-gradient-2', '#c3c2cc');
       document.documentElement.style.setProperty('--text-color-green-flash', '#046737ef');
       document.documentElement.style.setProperty('--scroll-bar', '#046737ef');
+      document.documentElement.style.setProperty('--text-color-gray-1', '#f1f1f1');
+      document.documentElement.style.setProperty('--text-color-gray-inversed', '#373737ba');
     } else {
       document.documentElement.style.setProperty('--text-color', '#f1f1f1');
       document.documentElement.style.setProperty('--black', '#090a0f');
@@ -78,7 +80,8 @@ export class HeaderComponent implements OnInit,AfterViewInit {
       document.documentElement.style.setProperty('--background-gradient-2', '#1f1e28');
       document.documentElement.style.setProperty('--text-color-green-flash', '#1aff91');
       document.documentElement.style.setProperty('--scroll-bar', '#00c566ef');
-
+      document.documentElement.style.setProperty('--text-color-gray-1', '#373737ba');
+      document.documentElement.style.setProperty('--text-color-gray-inversed', '#f1f1f1');
 
     }
 

@@ -2,39 +2,58 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 />
-
+<div class="container-project">
   <div class="header-project">
-  <h1>Mes Projets</h1>
-  <div class="input-control">
-    <label for="search">
-      <i class="fa-solid fa-magnifying-glass"></i>
-    </label>
-    <input
-      type="text"
-      [(ngModel)]="search"
-      id="search"
-      placeholder="Recherche..."
-    />
+    <h1>Mes Projets</h1>
+    <div class="input-control">
+      <label for="search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </label>
+      <input
+        type="text"
+        [(ngModel)]="search"
+        id="search"
+        placeholder="Recherche..."
+      />
+    </div>
   </div>
-</div>
   <div class="wrapper-projects">
     <div @projet class="projects">
       <div
         class="card-project"
-        
         *ngFor="let project of projects | filter : search; let index = index"
         (click)="openDialog(project)"
       >
-        <div class="project face1">
-          <div class="content">
+        <div class="project">
+          <div class="container-img-project">
+            <div class="online" *ngIf="project.siteweb">
+              <div class="icon-online"></div>
+              En ligne
+            </div>
             <img src="{{ project.img }}" alt="{{ project.name }}" />
-            <h2>{{ project.name }}</h2>
           </div>
-        </div>
-        <div class="project face2">
-          <div class="content">
-            <p>{{project.type}}</p>
-            <p class="techno"><span *ngFor="let tech of project.techno">{{tech+' '}}</span></p>
+          <div class="content-project">
+            <h2>{{ project.name }}</h2>
+            <p>{{ project.description | maxLength : 120 }}</p>
+            <div class="container-techno">
+              <div
+                class="techno"
+                *ngFor="let tech of project.techno"
+                [ngStyle]="{ 'background-color': tech.color }"
+              >
+                <img
+                  [src]="
+                    tech.img
+                      ? '../../assets/images/' +
+                        tech.name.toLowerCase() +
+                        '.png'
+                      : '../../assets/images/tech.png'
+                  "
+                  [alt]="tech.name"
+                />
+                <p>{{ tech.name + " " }}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -43,4 +62,4 @@
   <div class="msg">
     <p>Je n'attend que vous pour compléter ma collection</p>
   </div>
-  <router-outlet></router-outlet>
+</div>
