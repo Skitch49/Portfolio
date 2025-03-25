@@ -22,7 +22,11 @@
         position: relative;
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         background-color: var(--text-color-gray-1);
-
+        cursor: pointer;
+        transition: scale 0.3s ;
+        &:hover {
+          scale: 1.02;
+        }
         .project {
           width: clamp(400px, 25vw, 600px);
           .container-img-project {
@@ -111,6 +115,9 @@
         border: 0;
         color: black;
         background-color: #f4f4f4;
+      }
+      label {
+        color: #090a0f;
       }
     }
   }
