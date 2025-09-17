@@ -60,11 +60,12 @@
     <div class="left-side">
       <div class="profil-text">
         <div class="img-box">
-          <div class="box-profil">
+          <div class="box-profil" (click)="switchProfilPicture($event)">
+            <span></span>
             <img src="../../assets/images/profil.jpg" />
           </div>
         </div>
-        <h2>Alexis DELAUNAY<br /><span>Developpeur Web</span></h2>
+        <h2>Alexis DELAUNAY<br /><span>Developpeur Full Stack</span></h2>
       </div>
       <div class="contact-info wrapper-contact">
         <h3 class="title">Contact</h3>
@@ -98,9 +99,13 @@
             <span class="icon"><i class="fa-brands fa-linkedin"></i></span>
             <span class="text">linkedin.com/in/alexis-delaunay</span>
           </li>
-          <li>
-            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
-            <span class="text">Angers</span>
+          <li
+            (click)="navigateToExternalLink('https://github.com/Skitch49')"
+            class="pointer"
+            id="linkedin"
+          >
+            <span class="icon"><i class="fa-brands fa-github"></i></span>
+            <span class="text">github.com/Skitch49</span>
           </li>
         </ul>
       </div>
@@ -117,7 +122,7 @@
                 version="1.0"
                 viewBox="20.5 55.3 475.0 424.7"
                 zoomAndPan="magnify"
-                style="fill: rgb(3, 169, 244)"
+                style="fill: rgb(0, 0, 0)"
                 original_string_length="3120"
               >
                 <g id="__id13_s5sl3lvmx6">
@@ -176,7 +181,7 @@
                       rx="232.85"
                       ry="188.9"
                       transform="rotate(-64.94 302.475 241.743)"
-                      style="fill: rgb(3, 169, 244)"
+                      style="fill: rgb(0, 0, 0)"
                     />
                   </g>
                   <g id="__id18_s5sl3lvmx6">
@@ -186,7 +191,7 @@
                       rx="232.85"
                       ry="188.9"
                       transform="rotate(-64.94 268.085 225.666)"
-                      style="fill: rgb(0, 49, 71)"
+                      style="fill: rgb(0, 0, 0)"
                     />
                   </g>
                   <g id="__id19_s5sl3lvmx6">
@@ -196,7 +201,7 @@
                       rx="180.1"
                       ry="146.11"
                       transform="rotate(-64.94 268.085 225.666)"
-                      style="fill: rgb(3, 169, 244)"
+                      style="fill: #cb8436"
                     />
                   </g>
                   <g id="__id20_s5sl3lvmx6">
@@ -206,7 +211,7 @@
                       rx="121.65"
                       ry="98.69"
                       transform="rotate(-64.94 268.085 225.666)"
-                      style="fill: rgb(0, 49, 71)"
+                      style="fill: rgb(0, 0, 0)"
                     />
                   </g>
                   <g id="__id21_s5sl3lvmx6">
@@ -216,46 +221,47 @@
                       rx="54.65"
                       ry="44.33"
                       transform="rotate(-64.94 268.085 225.666)"
-                      style="fill: rgb(3, 169, 244)"
+                      style="fill: #cb8436"
                     />
                   </g>
                   <g id="__id22_s5sl3lvmx6">
                     <path
                       d="M137.9,138.06S103.62,25.67,68.81,8.49,45.3,94.74,45.3,94.74Z"
-                      style="fill: rgb(3, 169, 244)"
+                      style="fill: #ff1100"
                     />
                   </g>
                   <g id="__id23_s5sl3lvmx6">
                     <path
                       d="M119.55,172.7S17.27,202.89,3.25,176.22,25,138.06,25,138.06Z"
-                      style="fill: rgb(3, 169, 244)"
+                      style="fill: #ff1100"
                     />
                   </g>
                   <g id="__id24_s5sl3lvmx6">
                     <path
                       d="M68.24,108.13a2.65,2.65,0,0,1-2.64-2.42L59.38,35.85a2.66,2.66,0,0,1,5.29-.47l6.22,69.86a2.66,2.66,0,0,1-2.41,2.88Z"
-                      style="fill: rgb(3, 169, 244)"
+                      style="fill: #fff"
                     />
                   </g>
                   <g id="__id25_s5sl3lvmx6">
                     <path
                       d="M88.58,117.64a2.65,2.65,0,0,1-2.65-2.46L82.88,72.5a2.66,2.66,0,1,1,5.3-.38l3,42.68a2.67,2.67,0,0,1-2.46,2.84Z"
-                      style="fill: rgb(3, 169, 244)"
+                      style="fill: #fff"
                     />
                   </g>
                   <g id="__id26_s5sl3lvmx6">
                     <path
                       d="M25.86,170.28a2.65,2.65,0,0,1-.71-5.21l42.38-11.8A2.65,2.65,0,0,1,69,158.38L26.57,170.19A2.94,2.94,0,0,1,25.86,170.28Z"
-                      style="fill: rgb(3, 169, 244)"
+                      style="fill: #fff"
                     />
                   </g>
                   <g id="__id27_s5sl3lvmx6">
                     <path
                       d="M274.66,220.52l-.26.16a8.51,8.51,0,0,1-6.88.69L36.1,145.25A25.94,25.94,0,0,1,18.28,120.6a25.65,25.65,0,0,1,1.33-8.18,25.94,25.94,0,0,1,36.07-15l218.56,108.1a8.3,8.3,0,0,1,3.53,3.29A8.49,8.49,0,0,1,274.66,220.52Z"
-                      style="fill: rgb(3, 169, 244)"
+                      style="fill: #950d03"
                     />
                   </g>
-                </g></svg></span>
+                </g></svg
+            ></span>
             <span class="text">Rigueur</span>
           </li>
           <li>
@@ -284,6 +290,27 @@
             <p
               class="url"
               (click)="navigateToExternalLink('https://vald-fc.netlify.app/')"
+            >
+              vald-fc.netlify.app
+            </p>
+          </div>
+        </div>
+        <div class="item">
+          <div
+            class="wrapper-img"
+            (click)="
+              navigateToExternalLink('https://wonder.alexis-delaunay.fr/')
+            "
+          >
+            <img src="../../../../../assets/images/wonder.png" alt="Wonder" />
+          </div>
+          <div class="wrapper-content">
+            <p>Clone de Quora | Symfony</p>
+            <p
+              class="url"
+              (click)="
+                navigateToExternalLink('https://wonder.alexis-delaunay.fr/')
+              "
             >
               vald-fc.netlify.app
             </p>
@@ -318,14 +345,13 @@
       <div class="about wrapper-profil">
         <h2 class="title2">Profil</h2>
         <p>
-          Développeur web passionné et créatif, fort d'une solide formation en
-          développement, curieux & dynamique, je suis convaincu que mon
-          dévouement, mon esprit d'équipe et ma volonté d'apprendre sont des
-          atouts qui me permettront de réussir dans de futurs projets.
+          Développeur web full stack passionné et créatif, diplômé Bac +5, je
+          mets ma curiosité, mon dynamisme et mon esprit d’équipe au service de
+          projets innovants.
         </p>
       </div>
       <div class="about formation">
-        <h3 class="title2">Formation</h3>
+        <h2 class="title2">Formation</h2>
         <div class="wrapper-list-formation">
           <ul>
             <li>
@@ -383,7 +409,17 @@
         <h2 class="title2">Experiences Professionnelles</h2>
         <div class="box">
           <div class="year-company">
-            <h5>09-2022 - 11-2023</h5>
+            <h5>2025 - Maintenant</h5>
+            <h5>Temporis</h5>
+          </div>
+          <div class="text">
+            <h4>Missions d’intérim</h4>
+            <p>Manutentionnaire</p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="year-company">
+            <h5>2022 - 2024</h5>
             <h5>ESAIP</h5>
           </div>
           <div class="text">
@@ -403,8 +439,14 @@
             <h4>STAGE DE BACHELOR</h4>
             <p>
               Création de thème WordPress avec partie gestionnaire de fichier
-              pour Angers Loire Campus</p>
-              <p class="url" (click)="navigateToExternalLink('https://angersloirecampus.fr/')">angersloirecampus.fr</p>
+              pour Angers Loire Campus
+            </p>
+            <p
+              class="url"
+              (click)="navigateToExternalLink('https://angersloirecampus.fr/')"
+            >
+              angersloirecampus.fr
+            </p>
           </div>
         </div>
 

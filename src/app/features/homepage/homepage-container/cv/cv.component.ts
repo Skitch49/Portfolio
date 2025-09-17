@@ -21,16 +21,18 @@ import {
           transform: 'translateX(-10px)',
         }),
         animate('500ms 500ms'),
-      ])
+      ]),
     ]),
-
-
   ],
 })
 export class CvComponent {
   constructor(private router: Router) {}
   toggleChecked = false;
 
+  switchProfilPicture(event: MouseEvent) {
+    const img = event.target as HTMLImageElement;
+    img.classList.toggle('flip');
+  }
   toggleCV() {
     this.toggleChecked = !this.toggleChecked;
   }
