@@ -132,6 +132,31 @@ export class VoyageComponent implements OnInit {
         position: { lat: 40.4168, lng: -3.7038 },
       },
       {
+        nom: 'Seville',
+        position: { lat: 37.3891, lng: -5.9845 },
+      },
+      {
+        nom: 'Malaga',
+        position: { lat: 36.7213, lng: -4.4214 },
+      },
+      {
+        nom: 'Saint Malo',
+        position: { lat: 48.6493, lng: -2.0256 },
+      },
+      {
+        nom: 'Dinan',
+        position: { lat: 48.4543, lng: -2.0477 },
+      },
+      {
+        nom: 'Le Mont Saint Michel',
+        position: { lat: 48.6361, lng: -1.5115 },
+      },
+      {
+        nom: 'Caen',
+        position: { lat: 49.1829, lng: -0.37 },
+      },
+
+      {
         nom: 'Antalya',
         position: { lat: 36.8969, lng: 30.7133 },
       },
@@ -223,7 +248,6 @@ export class VoyageComponent implements OnInit {
         nom: 'Agios Nikolaos',
         position: { lat: 35.1887, lng: 25.7154 },
       }
-
     );
 
     this.infoWindow = new google.maps.InfoWindow();
@@ -243,9 +267,7 @@ export class VoyageComponent implements OnInit {
           this.currentMarker = null;
         } else {
           this.infoWindow.setContent(
-            '<div class="info-window">' +
-            point.nom +
-          '</div>'
+            '<div class="info-window">' + point.nom + '</div>'
           );
 
           this.infoWindow.open(map, marker);

@@ -33,16 +33,16 @@
         margin-bottom: 2rem;
         transform: translateX(200%);
         opacity: 0;
-        will-change: transform, opacity ;
-        animation: apparition 0.4s 1s forwards;
+        will-change: transform, opacity;
+        animation: apparition 0.4s 1.5s forwards;
       }
       h2 {
         display: flex;
         flex-direction: column;
         transform: translateX(200%);
         opacity: 0;
-        will-change: transform, opacity ;
-        animation: apparition 0.4s 1.4s forwards;
+        will-change: transform, opacity;
+        animation: apparition 0.4s 1.9s forwards;
         .first-word {
           font-size: 3.5rem;
           font-size: clamp(18px, 5vw + 1rem, 56px);
@@ -63,20 +63,20 @@
         border: 0;
         border-radius: 8px;
         background-color: #00c566ef;
-        font-size: clamp(16px,4vw,24px);
+        font-size: clamp(16px, 4vw, 24px);
         color: var(--text-color);
 
         cursor: pointer;
         user-select: none;
         margin-top: 2rem;
-        
+
         transition: background-color 0.2s ease, scale 0.2s ease;
         display: flex;
         align-items: center;
         gap: 6px;
         opacity: 0;
-        will-change: transform, opacity ;
-        animation: apparitionTop 0.4s 1.8s forwards;
+        will-change: transform, opacity;
+        animation: apparitionTop 0.4s 2.3s forwards;
         &:hover {
           background-color: #00c566c5;
           scale: 1.05;
@@ -104,15 +104,16 @@
           height: 35px;
           width: 35px;
           cursor: pointer;
-          box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;         &:nth-child(1){
+          box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+          &:nth-child(1) {
             opacity: 0;
-            will-change: transform, opacity ;
-            animation: apparitionTop 0.4s 2.2s forwards;
+            will-change: transform, opacity;
+            animation: apparitionTop 0.4s 2.7s forwards;
           }
-          &:nth-child(2){
+          &:nth-child(2) {
             opacity: 0;
-            will-change: transform, opacity ;
-            animation: apparitionTop 0.4s 2.6s forwards;
+            will-change: transform, opacity;
+            animation: apparitionTop 0.4s 3.1s forwards;
           }
           img {
             width: 35px;
@@ -182,7 +183,6 @@
 @keyframes apparition {
   0% {
     transform: translateX(200%);
-   
   }
   100% {
     transform: translateX(0);
@@ -192,7 +192,6 @@
 @keyframes apparitionTop {
   0% {
     transform: translateY(200%);
-   
   }
   100% {
     transform: translateX(0);

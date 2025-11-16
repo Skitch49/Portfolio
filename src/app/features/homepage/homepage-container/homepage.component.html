@@ -1,16 +1,16 @@
 <div class="container">
-  <div class="header-content">
-  </div>
+  <div class="header-content"></div>
   <section>
     <app-avatar></app-avatar>
     <div class="content">
       <h1><span class="gradient-text">Alexis Delaunay</span></h1>
 
       <h2>
-        <span class="first-word">Développeur</span><span class="second-word"> Full Stack</span>
+        <span class="first-word">Développeur</span
+        ><span class="second-word"> Full Stack</span>
       </h2>
       <button routerLink="cv" routerLinkActive="active" class="btn-cv">
-        <img src="../../../../assets/icons/cv.png" alt="CV"> Voir mon CV
+        <img src="../../../../assets/icons/cv.png" alt="CV" /> Voir mon CV
       </button>
       <div class="wrapper-reseaux">
         <div (click)="navigateToExternalLink('https://github.com/Skitch49')">
@@ -32,7 +32,6 @@
             (mouseenter)="addRotationAnimation($event)"
           />
         </div>
-        
       </div>
     </div>
   </section>

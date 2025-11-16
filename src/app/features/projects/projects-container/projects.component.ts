@@ -38,6 +38,50 @@ export class ProjectsComponent implements OnInit {
   ngOnInit(): void {
     this.projects = [
       {
+        name: 'Wonder',
+        type: 'Site web - Clone de Quora - Symfony',
+        techno: [
+          {
+            name: 'Symfony',
+            color: '#2e2d2d5c',
+            img: true,
+          },
+          {
+            name: 'Twig',
+            color: '#10f536cb',
+            img: true,
+          },
+          {
+            name: 'MongoDB',
+            color: '#358ad93b',
+            img: true,
+          },
+          {
+            name: 'Doctrine',
+            color: '#daa25adc',
+            img: true,
+          },
+          {
+            name: 'HTML',
+            color: '#ff611f47',
+            img: true,
+          },
+          {
+            name: 'CSS',
+            color: '#0479c05c',
+            img: true,
+          },
+        ],
+        img: '../../assets/images/wonder_project.png',
+        description: `Wonder est un projet web développé avec le framework PHP Symfony.
+        Il s\'agit d'une plateforme de questions/réponses inspirée de Quora, où les utilisateurs peuvent poser des questions, répondre à celles des autres et interagir avec la communauté.
+        
+        Ce projet a été réalisé dans le cadre d’un tutoriel proposé par la plateforme Dyma, et sert d’exemple concret pour apprendre et maîtriser Symfony.`,
+        siteweb: 'http://wonder.alexis-delaunay.fr/',
+        github: 'https://github.com/Skitch49/dyma_wonder',
+        dateRealisation: '2025',
+      },
+      {
         name: 'VALD FC',
         type: 'clone Netflix - MEAN Stack',
         techno: [
@@ -88,6 +132,53 @@ export class ProjectsComponent implements OnInit {
         siteweb: 'https://vald-fc.netlify.app/',
         github: 'https://github.com/Skitch49/vald-fc',
         dateRealisation: '2024',
+      },
+      {
+        name: 'FilmMind',
+        type: 'Site web - Symfony',
+        techno: [
+          {
+            name: 'Symfony',
+            color: '#2e2d2d5c',
+            img: true,
+          },
+          {
+            name: 'Mistral IA',
+            color: '#ff7b005c',
+            img: false,
+          },
+          {
+            name: 'Twig',
+            color: '#10f536cb',
+            img: true,
+          },
+          {
+            name: 'MongoDB',
+            color: '#358ad93b',
+            img: true,
+          },
+          {
+            name: 'Doctrine',
+            color: '#daa25adc',
+            img: true,
+          },
+          {
+            name: 'HTML',
+            color: '#ff611f47',
+            img: true,
+          },
+          {
+            name: 'CSS',
+            color: '#0479c05c',
+            img: true,
+          },
+          { name: 'API REST', color: '#cb0ef757', img: false },
+        ],
+        img: '../../assets/images/filmmind.png',
+        description: `FilmMind est un projet web développé avec le framework PHP Symfony.
+        Il s\'agit d'un site web sur lequel vous entrer votre pseudo Letterboxd et grâce à un scrapping et Mistral IA, le site vous génère un film à regardé en fonction de vos goûts cinématographiques.`,
+        github: 'https://github.com/Skitch49/FilmMind',
+        dateRealisation: '2025',
       },
       {
         name: 'Rooots',
@@ -182,7 +273,7 @@ export class ProjectsComponent implements OnInit {
         github: 'https://github.com/Skitch49/lovely-nails-by-prisci',
         dateRealisation: 'Mai 2024 - Juin 2024',
       },
-    
+
       {
         name: 'Tinder dogs',
         type: 'Site web',
@@ -242,10 +333,10 @@ export class ProjectsComponent implements OnInit {
             img: true,
           },
           {
-          name: 'HTML',
-          color :'#ff611f47',
+            name: 'HTML',
+            color: '#ff611f47',
             img: true,
-        },
+          },
           {
             name: 'CSS',
             color: '#0479c05c',
@@ -297,7 +388,7 @@ export class ProjectsComponent implements OnInit {
 
         dateRealisation: 'Janvier 2025',
       },
-  
+
       {
         name: 'Mes voyages',
         type: 'Site web',
@@ -352,7 +443,7 @@ export class ProjectsComponent implements OnInit {
         github: 'https://github.com/Skitch49/tap-in-generator',
         dateRealisation: 'Septembre 2024',
       },
-    
+
       {
         name: 'Image slider comparaison',
         type: 'image slider comparaison',
@@ -509,7 +600,8 @@ export class ProjectsComponent implements OnInit {
           },
         ],
         img: '../../assets/images/logo-mds.png',
-        description: 'Projet de première année de master à MDS situé à Angers pour recréer l\'API SWAPI.',
+        description:
+          "Projet de première année de master à MDS situé à Angers pour recréer l'API SWAPI.",
         github: 'https://github.com/Skitch49/SWAPI',
         dateRealisation: '2023',
       },
@@ -586,7 +678,7 @@ export class ProjectsComponent implements OnInit {
         ],
         img: '../../assets/images/algina.jpg',
         description:
-          "Lors de mon stage de BTS j'ai appris à créer des thèmes WordPress Personnalisés grâce à l'entreprise Azerty Consulting au sein d'Angers French Tech. J\'ai également utilisé la librairie javascript Isotope. Le site web Algina aura été mon tout premier projet.",
+          "Lors de mon stage de BTS j'ai appris à créer des thèmes WordPress Personnalisés grâce à l'entreprise Azerty Consulting au sein d'Angers French Tech. J'ai également utilisé la librairie javascript Isotope. Le site web Algina aura été mon tout premier projet.",
         dateRealisation: 'Février 2021',
       },
     ];
