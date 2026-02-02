@@ -25,7 +25,7 @@ import { DialogComponent } from '../../../shared/components/dialog/dialog.compon
             transform: 'translateY(-25px)',
           }),
           stagger(200, animate('500ms 100ms')),
-        ])
+        ]),
       ),
     ]),
   ],
@@ -37,6 +37,55 @@ export class ProjectsComponent implements OnInit {
   constructor(private dialog: MatDialog) {}
   ngOnInit(): void {
     this.projects = [
+      {
+        name: 'G2Vies',
+        type: 'Site web - refonte en React',
+        techno: [
+          {
+            name: 'MongoDB',
+            color: '#358ad93b',
+            img: true,
+          },
+          {
+            name: 'Express',
+            color: '#5cc0045c',
+            img: false,
+          },
+          {
+            name: 'React',
+            color: '#61dbfb4a',
+            img: true,
+          },
+          {
+            name: 'nodeJS',
+            color: '#70ab6242',
+            img: true,
+          },
+          {
+            name: 'SCSS',
+            color: '#f1aeced1',
+            img: true,
+          },
+
+          {
+            name: 'HTML',
+            color: '#ff611f47',
+            img: true,
+          },
+          {
+            name: 'API REST',
+            color: '#cb0ef757',
+            img: false,
+          },
+        ],
+        img: '../../assets/images/g2Vies_project.png',
+        description: `G2Vies est un site e-commerce développé en React dans le cadre d'une refonte d'une plateforme existante sous WordPress. 
+Le projet permet aux utilisateurs de consulter des ordinateurs reconditionnés, de gérer un panier et de finaliser leurs achats via Stripe. 
+Il met en avant l'utilisation de MongoDB, Express et Node.js pour la gestion des données et de l'API sous JWT, ainsi que SCSS et React pour une interface moderne et responsive. 
+Le projet est actuellement en cours de développement.`,
+        github: 'https://github.com/Skitch49/g2vies',
+        dateRealisation: '2026',
+      },
       {
         name: 'Wonder',
         type: 'Site web - Clone de Quora - Symfony',

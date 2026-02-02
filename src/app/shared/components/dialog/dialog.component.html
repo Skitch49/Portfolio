@@ -20,11 +20,24 @@
           <p>{{ tech.name }}</p>
         </div>
       </div>
-      <div *ngIf="data.project.siteweb" class="container-btn">
-        <a [href]="data.project.siteweb" target="_blank" class="btn-primary">
+      <div
+        *ngIf="data.project.siteweb || data.project.github"
+        class="container-btn"
+      >
+        <a
+          [href]="data.project.siteweb"
+          *ngIf="data.project.siteweb"
+          target="_blank"
+          class="btn-primary"
+        >
           Voir le site
         </a>
-        <a [href]="data.project.github" target="_blank" class="btn-secondary">
+        <a
+          [href]="data.project.github"
+          *ngIf="data.project.github"
+          target="_blank"
+          class="btn-secondary"
+        >
           Voir le github
         </a>
       </div>
