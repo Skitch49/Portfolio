@@ -56,7 +56,7 @@ export class VoyageComponent implements OnInit {
             console.error('Erreur de géolocalisation : ', error);
             this.center = { lat: 48.8584, lng: 2.2945 };
             this.initMap();
-          }
+          },
         );
       } else {
         this.center = { lat: 48.8584, lng: 2.2945 };
@@ -247,7 +247,15 @@ export class VoyageComponent implements OnInit {
       {
         nom: 'Agios Nikolaos',
         position: { lat: 35.1887, lng: 25.7154 },
-      }
+      },
+      {
+        nom: 'Troyes',
+        position: { lat: 48.2973, lng: 4.0744 }, // corrigé
+      },
+      {
+        nom: 'Orléans',
+        position: { lat: 47.9029, lng: 1.9093 }, // corrigé
+      },
     );
 
     this.infoWindow = new google.maps.InfoWindow();
@@ -267,7 +275,7 @@ export class VoyageComponent implements OnInit {
           this.currentMarker = null;
         } else {
           this.infoWindow.setContent(
-            '<div class="info-window">' + point.nom + '</div>'
+            '<div class="info-window">' + point.nom + '</div>',
           );
 
           this.infoWindow.open(map, marker);

@@ -39,7 +39,7 @@ export class ProjectsComponent implements OnInit {
     this.projects = [
       {
         name: 'G2Vies',
-        type: 'Site web - refonte en React',
+        type: 'Site e-commerce - refonte en React',
         techno: [
           {
             name: 'MongoDB',
@@ -80,8 +80,9 @@ export class ProjectsComponent implements OnInit {
         ],
         img: '../../assets/images/g2Vies_project.png',
         description: `G2Vies est un site e-commerce développé en React dans le cadre d'une refonte d'une plateforme existante sous WordPress. 
-Le projet permet aux utilisateurs de consulter des ordinateurs reconditionnés, de gérer un panier et de finaliser leurs achats via Stripe. 
-Il met en avant l'utilisation de MongoDB, Express et Node.js pour la gestion des données et de l'API sous JWT, ainsi que SCSS et React pour une interface moderne et responsive. 
+Le projet permet aux utilisateurs de consulter des ordinateurs reconditionnés, de gérer un panier et de finaliser leurs achats via Stripe.
+Gestion des formulaires via react-hook-form et yup pour la validation.
+Projet MERN Stack avec partie authentification via un token JWT. 
 Le projet est actuellement en cours de développement.`,
         github: 'https://github.com/Skitch49/g2vies',
         dateRealisation: '2026',
@@ -181,6 +182,35 @@ Le projet est actuellement en cours de développement.`,
         siteweb: 'https://vald-fc.netlify.app/',
         github: 'https://github.com/Skitch49/vald-fc',
         dateRealisation: '2024',
+      },
+      {
+        name: 'Cookchef',
+        type: 'Site web - React',
+        techno: [
+          {
+            name: 'React',
+            color: '#61dbfb4a',
+            img: true,
+          },
+
+          {
+            name: 'HTML',
+            color: '#ff611f47',
+            img: true,
+          },
+          {
+            name: 'SCSS',
+            color: '#f1aeced1',
+            img: true,
+          },
+          { name: 'API REST', color: '#cb0ef757', img: false },
+        ],
+        img: '../../assets/images/cookchef_project.png',
+        description: `Cookchef est un projet React fait lors de ma formation sur cette librairie via la plateform Dyma.
+        Il s\'agit d'un site web sur lequel vous pouvez rechercher et ajouter des recettes en favoris. Il y a également une partie admin avec un CRUD des recettes`,
+        siteweb: 'https://cookchef.alexis-delaunay.fr/',
+        github: 'https://github.com/Skitch49/cookchef',
+        dateRealisation: '2026',
       },
       {
         name: 'FilmMind',
