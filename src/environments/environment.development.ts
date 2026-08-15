@@ -1,4 +1,4 @@
 export const environment = {
-  clientId: '03f454e1182f4722960becdc0e895b9c',
+  clientId: 'd377817f279346e1b79cff95e2b38e5a',
   APIBackendUrl: 'http://localhost:3000/api',
 };

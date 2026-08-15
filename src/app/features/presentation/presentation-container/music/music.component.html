@@ -38,15 +38,14 @@
     </div>
     <div class="player-controls">
       <div class="wrapper-volume">
-        <img [src]="'../../../../../assets/icons/'+imgVolume+'.png'" alt="icon Volume" (click)="muteSong()">
-        <input
-          type="range"
-         
-          [value]="volume"
-          (input)="changeVolume($event)"
-      />
+        <img
+          [src]="'../../../../../assets/icons/' + imgVolume + '.png'"
+          alt="icon Volume"
+          (click)="muteSong()"
+        />
+        <input type="range" [value]="volume" (input)="changeVolume($event)" />
       </div>
-     
+
       <i
         class="fa-solid fa-backward"
         id="prev"
@@ -107,8 +106,7 @@
     </div>
   </div>
 </div>
-
-<div class="container-spotify">
+<div *ngIf="topTracks.length > 0" class="container-spotify">
   <h2>
     Top {{ this.type?.value }} en
     <span *ngIf="this.timeRange?.value === 'short_term'">4 semaines</span

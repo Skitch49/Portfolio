@@ -256,6 +256,42 @@ export class VoyageComponent implements OnInit {
         nom: 'Orléans',
         position: { lat: 47.9029, lng: 1.9093 }, // corrigé
       },
+      {
+        nom: 'Strasbourg',
+        position: { lat: 48.5734, lng: 7.7521 },
+      },
+      {
+        nom: 'Europa-Park',
+        position: { lat: 48.266, lng: 7.7217 },
+      },
+      {
+        nom: 'Blois',
+        position: { lat: 47.5861, lng: 1.3359 },
+      },
+      {
+        nom: 'Ajaccio',
+        position: { lat: 41.9192, lng: 8.7386 },
+      },
+      {
+        nom: 'Bonifacio',
+        position: { lat: 41.3879, lng: 9.1597 },
+      },
+      {
+        nom: 'Porto-Vecchio',
+        position: { lat: 41.591, lng: 9.2795 },
+      },
+      {
+        nom: 'Corte',
+        position: { lat: 42.3064, lng: 9.149 },
+      },
+      {
+        nom: 'Calvi',
+        position: { lat: 42.5667, lng: 8.7572 },
+      },
+      {
+        nom: 'Piana',
+        position: { lat: 42.239, lng: 8.636 },
+      },
     );
 
     this.infoWindow = new google.maps.InfoWindow();
