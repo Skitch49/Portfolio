@@ -1,10 +1,10 @@
-<div class="steam-container">
+<div class="steam-container" *ngIf="userInfo.gameid">
   <div class="container-steam" *ngIf="userInfo">
     <div class="wrapper-steam">
       <div
         class="steam"
         [ngStyle]="{
-          padding: userInfo.gameid ? '1rem 0rem 0rem 1rem' : '1rem'
+          padding: userInfo.gameid ? '1rem 0rem 0rem 1rem' : '1rem',
         }"
       >
         <h1 class="steam-title" *ngIf="!userInfo.gameid">Mon profil Steam</h1>
@@ -43,10 +43,10 @@
                     userInfo.personastate === 1
                       ? '#23e123'
                       : userInfo.personastate === 2
-                      ? 'rgb(223 36 22);'
-                      : userInfo.personastate === 3
-                      ? 'rgb(255 149 46)'
-                      : 'rgb(68, 68, 68)'
+                        ? 'rgb(223 36 22);'
+                        : userInfo.personastate === 3
+                          ? 'rgb(255 149 46)'
+                          : 'rgb(68, 68, 68)',
                 }"
               >
                 <div class="tooltip" [ngSwitch]="userInfo.personastate">
@@ -83,7 +83,7 @@
     </div>
   </div>
 </div>
-<div class="all-game-steam">
+<div class="all-game-steam" *ngIf="allGames.games.length > 0">
   <form [formGroup]="formSteamGames">
     <p>
       Total de jeux Steam : <b>{{ allGames.games.length }}</b>
